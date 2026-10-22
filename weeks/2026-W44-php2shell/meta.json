@@ -21,8 +21,8 @@
       "id": "02",
       "slot": "Wed",
       "due": "2026-10-28T10:00:00+05:30",
-      "format": "video",
-      "video_seconds": 28,
+      "format": "video (motion graphic)",
+      "video_seconds": 98,
       "topic_type": "security",
       "hook_style": "story",
       "india_angle": false,
@@ -42,5 +42,5 @@
       "buffer_post_id": "6ada2bc4e8cca8cdcc5b779c"
     }
   ],
-  "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@fa5c1d9/"
+  "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@c68d80c/ (post 02); others @fa5c1d9"
 }

@@ -33,3 +33,6 @@ Copy PDFs, MP4 and slide-1 PNGs (`decoded-NN-cover.png`) to `JACOBIAN01/decoded/
 
 ## 6. Record
 Update `meta.json` (status, buffer_post_id per post, asset_base) and add the week to the log in the project's `content-plan.md`.
+
+## Motion-graphic video (preferred over the terminal-log video)
+`NODE_PATH=$(npm root -g) node tools/motion.js weeks/<week>/motion.html <outDir> decoded-NN.mp4` records a hand-authored animated HTML explainer (set `window.done=true` at the end). See `weeks/2026-W44-php2shell/motion.html`: levels 1-6 from basics to the real bug to the fix. `video.js` (terminal logs) is kept only as a fallback.
