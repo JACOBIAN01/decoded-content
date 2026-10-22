@@ -35,5 +35,5 @@ Decoded #03 · Follow for next week's story, decoded from zero.
 
 #AI #Cybersecurity #OpenSource
 
-## First comment
+## First comment (NOT posted: needs a paid Buffer plan; sources/repo are in the caption instead)
 Sources: Decrypt, Help Net Security, BleepingComputer, Al Jazeera. Demo code from this week: github.com/JACOBIAN01/decoded

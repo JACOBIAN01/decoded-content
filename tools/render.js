@@ -1,7 +1,7 @@
-// Renders decks to PDF + slide PNGs. Usage: node render.js <outDir>
+// Renders decks to PDF + slide PNGs. Usage: node render.js <outDir> <path/to/deck.js>
 const { chromium } = require("playwright");
 const fs = require("fs"), path = require("path");
-const decks = require("./decks");
+const decks = require(path.resolve(process.argv[3] || "./deck.js"));
 const out = process.argv[2] || "out";
 fs.mkdirSync(out, { recursive: true });
 

@@ -3,10 +3,44 @@
   "topic": "PHP2Shell",
   "source": "trending",
   "trend_score": 24,
-  "status": "produced",
+  "status": "scheduled",
   "posts": [
-    {"id": "01", "slot": "Tue", "due": "2026-10-27T10:00:00+05:30", "format": "carousel", "slides": 9, "topic_type": "security", "hook_style": "shocking number", "india_angle": false, "asset": "01-leftover-data/slides/decoded-01.pdf", "buffer_post_id": null},
-    {"id": "02", "slot": "Wed", "due": "2026-10-28T10:00:00+05:30", "format": "video", "video_seconds": 28, "topic_type": "security", "hook_style": "story", "india_angle": false, "asset": "01-leftover-data/slides/decoded-02.mp4", "buffer_post_id": null},
-    {"id": "03", "slot": "Thu", "due": "2026-10-29T10:00:00+05:30", "format": "carousel", "slides": 9, "topic_type": "AI", "hook_style": "contrast", "india_angle": false, "asset": "01-leftover-data/slides/decoded-03.pdf", "buffer_post_id": null}
-  ]
+    {
+      "id": "01",
+      "slot": "Tue",
+      "due": "2026-10-27T10:00:00+05:30",
+      "format": "carousel",
+      "slides": 9,
+      "topic_type": "security",
+      "hook_style": "shocking number",
+      "india_angle": false,
+      "asset": "01-leftover-data/slides/decoded-01.pdf",
+      "buffer_post_id": "6ada2bb5a6a09108d2727f43"
+    },
+    {
+      "id": "02",
+      "slot": "Wed",
+      "due": "2026-10-28T10:00:00+05:30",
+      "format": "video",
+      "video_seconds": 28,
+      "topic_type": "security",
+      "hook_style": "story",
+      "india_angle": false,
+      "asset": "01-leftover-data/slides/decoded-02.mp4",
+      "buffer_post_id": "6ada2be3e8cca8cdcc5b7cb7"
+    },
+    {
+      "id": "03",
+      "slot": "Thu",
+      "due": "2026-10-29T10:00:00+05:30",
+      "format": "carousel",
+      "slides": 9,
+      "topic_type": "AI",
+      "hook_style": "contrast",
+      "india_angle": false,
+      "asset": "01-leftover-data/slides/decoded-03.pdf",
+      "buffer_post_id": "6ada2bc4e8cca8cdcc5b779c"
+    }
+  ],
+  "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@fa5c1d9/"
 }

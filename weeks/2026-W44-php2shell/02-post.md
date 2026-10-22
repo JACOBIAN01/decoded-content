@@ -28,5 +28,5 @@ Decoded #02 · Tomorrow: how AI hunts for bugs, and why attackers can do it too.
 
 #JavaScript #Cybersecurity #Programming
 
-## First comment
+## First comment (NOT posted: needs a paid Buffer plan; sources/repo are in the caption instead)
 Code (MIT, no installs): github.com/JACOBIAN01/decoded/tree/main/01-leftover-data

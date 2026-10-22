@@ -30,7 +30,7 @@ This is Decoded #01: the tech everyone's talking about, explained from zero. Tom
 
 #Cybersecurity #WebDevelopment #AI
 
-## First comment
+## First comment (NOT posted: needs a paid Buffer plan; sources/repo are in the caption instead)
 Sources: PHP security release (via BleepingComputer, Help Net Security), Decrypt, Al Jazeera, W3Techs. Full list + demo code: github.com/JACOBIAN01/decoded
 
 ## Checklist (post-selection-rules §7)
