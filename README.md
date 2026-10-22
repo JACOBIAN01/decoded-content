@@ -7,7 +7,8 @@ Production workspace for the *Decoded* LinkedIn series. Readers never see this r
 | What | Where |
 |---|---|
 | Rules for choosing every post (hook + trend first) | claude.ai Project "LinkedIn Agent" → `decoded/post-selection-rules.md` |
-| Locked plan for weeks 1–3 | Project → `decoded/content-plan.md` |
+| Current plan + log of weeks run | Project → `decoded/content-plan.md` |
+| Reserve weeks for quiet news weeks | Project → `decoded/archive.md`; drafts in `archive/` here |
 | Trend scans and weekly picks | Project → `decoded/trend-log.md` (written daily by a scheduled task) |
 | Metrics snapshots and retros | Project → `decoded/metrics-log.md` (written daily by a scheduled task) |
 | Each week's posts, slide scripts, exports | This repo → `weeks/<ISO-week>-<topic>/` |
@@ -17,7 +18,7 @@ The project docs are the source of truth for plans and logs; this repo holds the
 ## Week folder layout
 
 ```
-weeks/2026-W44-linkedin-feed/
+weeks/2026-W44-php2shell/
   research.md      # sources; every claim tagged Documented or Our build
   01-post.md       # Tue: post text, 5 hooks (best marked), first comment
   02-post.md       # Wed: demo video script + post text
@@ -28,8 +29,8 @@ weeks/2026-W44-linkedin-feed/
 
 ## Schedule
 
-| Week | Posts (~10 AM IST) | Topic |
-|---|---|---|
-| 2026-W44 | 27, 28, 29 Oct | How LinkedIn decides who sees your post |
-| 2026-W45 | 3, 4, 5 Nov | How AI browser agents click around websites |
-| 2026-W46 | 10, 11, 12 Nov | What a sandbox is, and how agents escaped one |
+| Week | Posts (~10 AM IST) | Topic | Source |
+|---|---|---|---|
+| 2026-W44 | 27, 28, 29 Oct | PHP2Shell: the 14-year-old flaw AI helped find | Trending |
+
+From Week 2, each Sunday picks the biggest verified trending story (18+/26). In quiet weeks, a ready-made week from `archive/` is used instead (A1 LinkedIn feed, A2 browser agents, A3 sandbox).
