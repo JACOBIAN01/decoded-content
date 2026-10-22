@@ -1,4 +1,12 @@
 {
-  "status": "planned",
-  "posts": []
+  "week": "2026-W44",
+  "topic": "PHP2Shell",
+  "source": "trending",
+  "trend_score": 24,
+  "status": "produced",
+  "posts": [
+    {"id": "01", "slot": "Tue", "due": "2026-10-27T10:00:00+05:30", "format": "carousel", "slides": 9, "topic_type": "security", "hook_style": "shocking number", "india_angle": false, "asset": "01-leftover-data/slides/decoded-01.pdf", "buffer_post_id": null},
+    {"id": "02", "slot": "Wed", "due": "2026-10-28T10:00:00+05:30", "format": "video", "video_seconds": 28, "topic_type": "security", "hook_style": "story", "india_angle": false, "asset": "01-leftover-data/slides/decoded-02.mp4", "buffer_post_id": null},
+    {"id": "03", "slot": "Thu", "due": "2026-10-29T10:00:00+05:30", "format": "carousel", "slides": 9, "topic_type": "AI", "hook_style": "contrast", "india_angle": false, "asset": "01-leftover-data/slides/decoded-03.pdf", "buffer_post_id": null}
+  ]
 }

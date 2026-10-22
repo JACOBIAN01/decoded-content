@@ -1,0 +1,77 @@
+// Slide content for Week 1 (PHP2Shell). Rendered by render.js.
+module.exports = {
+  "decoded-01": {
+    num: "01",
+    slides: [
+      { type: "hook", pill: "CVSS 9.2 · Critical", kicker: "21 Oct 2026 · PHP ships an emergency fix",
+        title: "AI helped find a 14‑year‑old flaw in the code behind 70% of websites.",
+        sub: "What did it find?" },
+      { type: "big", label: "Why you should care", big: "About 7 in 10 websites run on PHP.",
+        body: "WordPress blogs, shops, news sites. A server flaw can expose everyone who visits.",
+        badge: "Documented", src: "W3Techs, 22 Oct 2026: 69.3% of sites with a known server language" },
+      { type: "timeline", label: "What happened", items: [
+        ["Aug", "Researchers at Calif, using AI, spot the bug"],
+        ["Sept", "OpenAI finds the fuller version"],
+        ["21 Oct", "PHP patches early. Governments pull sites offline."]],
+        badge: "Documented", src: "BleepingComputer, Decrypt, Al Jazeera" },
+      { type: "big", label: "The idea", big: "A hotel room nobody cleaned.",
+        body: "A guest leaves in a rush. The cleaner skips the room. The next guest finds their things." },
+      { type: "worker", label: "How it works · 1", big: "Servers reuse workers.",
+        body: "One worker serves visitor after visitor. Fast, because nothing is rebuilt each time." },
+      { type: "flow", label: "How it works · 2", steps: [
+        ["Request crashes", "e.g. out of memory", "red"], ["Clean‑up skipped", "", "red"],
+        ["Leftover state", "stays in memory", "purple"], ["Next request uses it", "", "purple"]],
+        note: "In PHP, that leftover state could let an attacker run code.",
+        badge: "Documented", src: "PHP security team via Help Net Security" },
+      { type: "code", label: "The fix, in code",
+        code: `// BUG: a crash skips the clean-up\ntry {\n  worker.note = note;\n  doWork();          // 💥 out of memory\n  worker.note = null;\n} catch (e) { send(500); }\n\n// FIX: start every request clean\nworker.note = null;`,
+        body: "Full working demo on Wednesday.", badge: "Our build" },
+      { type: "list", label: "What it means for you", items: [
+        "Run a PHP site? Update to 8.2.35, 8.3.36, 8.4.27 or 8.5.12.",
+        "Writing a server? Reset state on every request.",
+        "See a security update? Install it." ],
+        badge: "Documented", src: "Fixed versions: PHP release notes via BleepingComputer" },
+      { type: "card", big: "A crash left memory dirty. The next visitor walked right in.",
+        question: "AI helped find this bug. Good news or bad news for security?",
+        next: "Wed · Watch the leak happen live" },
+    ],
+  },
+  "decoded-03": {
+    num: "03",
+    slides: [
+      { type: "hook", pill: "AI vs AI", kicker: "Calif, Wiz and OpenAI used AI to hunt PHP bugs",
+        title: "AI spotted a bug humans missed for 14 years.",
+        sub: "Attackers have the same AI. Here's how the hunt works." },
+      { type: "big", label: "Why you should care", big: "Bug‑hunting just got faster. For everyone.",
+        body: "“Tools now find bugs faster than ever, for defenders and attackers alike.” (PHP Foundation)",
+        badge: "Documented", src: "Al Jazeera, 22 Oct 2026" },
+      { type: "timeline", label: "The race", items: [
+        ["Aug", "Calif finds a version using GPT‑5.6 Sol"],
+        ["Sept", "OpenAI finds the full bug; Wiz finds it too"],
+        ["17 Oct", "A honeypot logs an early attack attempt"],
+        ["21 Oct", "Patch ships a day early after a leak"]],
+        badge: "Documented", src: "Decrypt, Help Net Security, BleepingComputer" },
+      { type: "big", label: "The idea", big: "Proofreading a 1,000‑page book.",
+        body: "A human skims. An AI reads every line, every night, and asks “what if?” at each one." },
+      { type: "flow", label: "How AI hunts · 1", steps: [
+        ["Read the code", "", "blue"], ["Flag risky spots", "", "blue"],
+        ["Throw weird inputs", "called fuzzing", "purple"], ["Watch for crashes", "", "red"]],
+        note: "Simplified view of AI-assisted bug finding.", badge: "Our build" },
+      { type: "flow", label: "How AI hunts · 2", steps: [
+        ["Humans confirm it", "", "blue"], ["Report privately", "to PHP's team", "blue"],
+        ["Fix built quietly", "", "purple"], ["Everyone patches", "", "green"]],
+        note: "Wiz: frontier AI “substantially reduced” the barrier to exploiting it.",
+        badge: "Documented", src: "Help Net Security" },
+      { type: "code", label: "A fuzzer, in 6 lines",
+        code: `// throw random inputs, catch the crash\nfor (let i = 0; i < 10000; i++) {\n  const input = randomText();\n  try { parseAge(input); }\n  catch (e) { console.log("Crash on:", input); break; }\n}`,
+        body: "AI tools do this far smarter, at huge scale.", badge: "Our build" },
+      { type: "list", label: "What it means for you", items: [
+        "Update dependencies weekly: npm audit, Dependabot.",
+        "Learn testing and fuzzing. It's a job skill now.",
+        "Never ignore a security update." ] },
+      { type: "card", big: "AI made bug‑hunting faster. The winners are the ones who patch first.",
+        question: "Should AI labs hunt for bugs in everyone's open‑source code?",
+        next: "Next week · A new story, decoded" },
+    ],
+  },
+};
