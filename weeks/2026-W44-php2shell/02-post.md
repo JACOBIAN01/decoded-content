@@ -1,4 +1,4 @@
-# Decoded #02 · Wed 28 Oct 2026, 10:00 IST · Video (decoded-02.mp4, 98 s, motion graphic)
+# Decoded #02 · Wed 28 Oct 2026, 10:00 IST · Video (decoded-02.mp4, 51.5 s, motion graphic v2)
 
 ## Hooks (5; ★ = used)
 1. ★ I built a tiny server that leaks one visitor's password to the next. Here's the bug behind PHP2Shell, live.
@@ -7,19 +7,24 @@
 4. Yesterday I explained PHP2Shell. Today, watch the bug happen.
 5. The most dangerous line of code is the clean-up you skipped.
 
-## Caption (as scheduled in Buffer, updated 23 Oct for the motion-graphic video)
-Subhadeep just saw Akshat's one-time password. Nobody hacked anything.
-A server forgot to clean up. That same mistake sits behind PHP2Shell.
+## Caption (v2, as scheduled in Buffer 23 Oct)
+A stranger's password just showed up on my screen. No hacker involved.
 
-In 98 seconds, from zero: server and worker, why workers are reused, how a crash skips the clean-up, how leftover data reaches the next visitor, what it looks like in real memory, and the fix.
+It's the same kind of bug behind PHP2Shell, the PHP flaw that made governments pull sites offline.
 
-Documented: PHP2Shell (CVE-2026-109618/109619, CVSS 9.2); fixed in PHP 8.5.12, 8.4.27, 8.3.36, 8.2.35. Sources: BleepingComputer, Help Net Security.
-Our build: the animation and Node demo are simplified; not PHP, not the real exploit.
+In 50 seconds: a crash skips one clean-up step, and the next visitor gets the leftovers. Then I zoom into the server's memory to show what really broke, and the one idea that fixes it.
 
-Code: GitHub → JACOBIAN01/decoded (folder 01-leftover-data)
-Question: Have you ever seen data from one user show up for another?
+Have you ever seen one user's data show up for another? Tell me below.
+
+Run the demo yourself: GitHub → JACOBIAN01/decoded (folder 01-leftover-data). npm start, then npm run fixed.
+
+Running PHP? Update to 8.5.12, 8.4.27, 8.3.36 or 8.2.35.
+
+Documented: CVE-2026-109618 / 109619, CVSS 9.2 (BleepingComputer, Help Net Security). Our build: a simplified JavaScript demo, not PHP and not an exploit.
+
 Decoded #02 · Tomorrow: how AI hunts for bugs, and why attackers can do it too.
-#JavaScript #Cybersecurity #Programming
+
+#Cybersecurity #JavaScript #Programming
 
 ## First comment (NOT posted: needs a paid Buffer plan; sources/repo are in the caption instead)
 Code (MIT, no installs): github.com/JACOBIAN01/decoded/tree/main/01-leftover-data

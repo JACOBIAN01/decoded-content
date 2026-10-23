@@ -36,3 +36,8 @@ Update `meta.json` (status, buffer_post_id per post, asset_base) and add the wee
 
 ## Motion-graphic video (preferred over the terminal-log video)
 `NODE_PATH=$(npm root -g) node tools/motion.js weeks/<week>/motion.html <outDir> decoded-NN.mp4` records a hand-authored animated HTML explainer (set `window.done=true` at the end). See `weeks/2026-W44-php2shell/motion.html`: levels 1-6 from basics to the real bug to the fix. `video.js` (terminal logs) is kept only as a fallback.
+
+## Motion graphic v2 (default from Week 2)
+Write the video as a timeline: the page defines `window.DURATION` and `window.render(t)` (pure function of time). Render deterministically, one frame at a time:
+`NODE_PATH=$(npm root -g) node tools/frames.js weeks/<week>/motion.html <out>.mp4 30` (use `--stills 2,10,20` to check frames first).
+Rules learned from the Week 1 critique: open on the payoff in the first 2 s; 45-55 s total; every second has motion; text at least 28 px; animate cause and effect (data moving), not just state swaps; one short labelled engineer layer; end card 3 s; Buffer thumbnailOffset on the hook frame (~1500-2000 ms). See `weeks/2026-W44-php2shell/motion-v2.html`.

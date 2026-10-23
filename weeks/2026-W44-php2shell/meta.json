@@ -21,10 +21,10 @@
       "id": "02",
       "slot": "Wed",
       "due": "2026-10-28T10:00:00+05:30",
-      "format": "video (motion graphic)",
-      "video_seconds": 98,
+      "format": "video (motion graphic v2, frame-rendered)",
+      "video_seconds": 51.5,
       "topic_type": "security",
-      "hook_style": "story",
+      "hook_style": "cold open on the leak",
       "india_angle": false,
       "asset": "01-leftover-data/slides/decoded-02.mp4",
       "buffer_post_id": "6ada2be3e8cca8cdcc5b7cb7"

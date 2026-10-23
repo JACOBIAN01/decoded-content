@@ -1,0 +1,247 @@
+<!doctype html><meta charset="utf-8"><title>Decoded #02 v2</title>
+<!-- Timeline-driven motion graphic. window.render(t) draws the exact frame at time t (seconds).
+     Rendered frame by frame by tools/frames.js. Open in a browser to preview (it plays itself). -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1D1D1F;--mute:#6E6E73;--blue:#0071E3;--red:#D93025;--green:#1F9D55;--org:#FF9500;--line:#E5E5EA;--bg:#FBFBFD}
+body{width:1080px;height:1350px;background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);overflow:hidden;position:relative}
+.abs{position:absolute}
+#bar{left:0;top:0;height:8px;background:var(--blue);width:0}
+.top{left:80px;right:80px;top:48px;display:flex;justify-content:space-between;align-items:center}
+.top .brand{font-size:30px;font-weight:700;letter-spacing:.08em}.top .brand span{color:var(--mute);font-weight:600}
+#lvl{font-size:28px;font-weight:700;letter-spacing:.06em;padding:10px 22px;border-radius:999px;background:#EAF3FF;color:#0B5CC4}
+/* hook */
+#hook{left:110px;top:200px;width:860px;padding-bottom:60px!important;background:#fff;border-radius:44px;border:2px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.08);padding:0 56px;z-index:30}
+#hook .hd{height:86px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line);margin:0 -56px;padding:0 40px;font-size:28px;color:var(--mute);font-weight:600}
+#hook .hd i{width:18px;height:18px;border-radius:50%;background:#D2D2D7;display:inline-block}
+#hook .l1{margin-top:64px;font-size:54px;font-weight:600}
+#hook .l2{margin-top:22px;font-size:54px;font-weight:600}
+#hpw{margin-top:30px;display:inline-block;font-family:'DejaVu Sans Mono',monospace;font-size:92px;font-weight:700;color:var(--red);background:#FDECEA;border:4px solid var(--red);border-radius:24px;padding:14px 34px}
+#htag{margin-top:34px;font-size:40px;font-weight:700;color:var(--red)}
+/* stage */
+.av{width:130px}
+.av .c{width:130px;height:130px;border-radius:50%;color:#fff;font-size:62px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.av .n{width:220px;margin-left:-45px;text-align:center;margin-top:8px;font-size:32px;font-weight:700;color:#424245}
+.dot{width:44px;height:44px;border-radius:50%;background:#C7C7CC}
+#srv{left:360px;top:180px;width:650px;height:700px;background:#fff;border-radius:40px;border:2px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.06)}
+#srv .t{position:absolute;left:34px;top:26px;font-size:28px;font-weight:700;letter-spacing:.12em;color:var(--mute)}
+#wk{left:30px;top:80px;width:590px;height:400px;background:#F5F5F7;border-radius:28px;border:2px solid var(--line)}
+#wk .t2{position:absolute;left:26px;top:20px;font-size:32px;font-weight:700}
+#wk .t3{position:absolute;right:26px;top:24px;font-size:28px;font-weight:600;color:var(--mute)}
+#mem{left:24px;top:76px;width:542px;height:300px;background:#fff;border:3px dashed #C7C7CC;border-radius:20px;overflow:hidden}
+#mem .ml{position:absolute;left:18px;top:12px;font-size:28px;font-weight:700;color:var(--mute);letter-spacing:.08em}
+#note{left:40px;top:78px;width:462px;height:168px;white-space:nowrap;background:#FFE680;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.12);padding:20px 26px}
+#note .nl{font-size:28px;font-weight:700;color:#6B5A00}
+#note .nv{margin-top:10px;font-family:'DejaVu Sans Mono',monospace;font-size:52px;font-weight:700}
+#sweep{top:0;height:100%;width:90px;background:linear-gradient(90deg,rgba(31,157,85,0),rgba(31,157,85,.55),rgba(31,157,85,0))}
+#lifet{left:34px;top:500px;font-size:28px;font-weight:700;color:var(--mute)}
+.pill{top:552px;width:186px;height:80px;border-radius:22px;border:3px solid var(--line);background:#F5F5F7;font-size:32px;font-weight:700;color:var(--mute);display:flex;align-items:center;justify-content:center}
+#oom{left:50px;top:396px;width:550px;height:88px;border-radius:24px;background:var(--red);color:#fff;font-size:46px;font-weight:800;display:flex;align-items:center;justify-content:center;letter-spacing:.04em;z-index:5}
+#pk{width:40px;height:40px;border-radius:50%;z-index:25;margin:-20px 0 0 -20px;box-shadow:0 0 0 8px rgba(0,113,227,.15)}
+#chip{z-index:26;font-family:'DejaVu Sans Mono',monospace;font-size:36px;font-weight:700;background:#FFE680;padding:8px 16px;border-radius:10px;margin:-30px 0 0 -110px;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+#bub{left:36px;top:736px;width:300px;padding:18px 22px;border-radius:24px;background:#fff;border:4px solid var(--red);font-family:'DejaVu Sans Mono',monospace;font-size:34px;line-height:1.3;z-index:20}
+#bub .bv{font-weight:700}
+/* zoom */
+#zoom{left:360px;top:180px;width:650px;height:700px;background:#fff;border-radius:40px;border:2px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.08);transform-origin:325px 306px;z-index:10}
+#zoom .zt{position:absolute;left:36px;top:30px;font-size:32px;font-weight:700}
+#zoom .zs{position:absolute;left:36px;top:74px;font-size:28px;font-weight:600;color:var(--mute)}
+#grid{left:50px;top:130px;display:grid;grid-template-columns:repeat(6,80px);gap:14px}
+#grid i{display:block;width:80px;height:80px;border-radius:14px;background:#EEF1F6}
+#legend{left:50px;top:520px;display:flex;gap:26px;font-size:28px;font-weight:600;color:#424245}
+#legend span{display:flex;align-items:center;gap:10px}#legend b{width:26px;height:26px;border-radius:7px;display:inline-block}
+#zl{left:50px;top:574px;width:560px;font-size:30px;font-weight:600;line-height:1.3}
+#rce{left:50px;top:578px;width:550px;height:84px;border-radius:20px;background:var(--red);color:#fff;font-size:32px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:3}
+#ptr{left:0;top:0;width:1080px;height:1350px;z-index:12;pointer-events:none}
+#flash{inset:0;background:var(--red);z-index:40;pointer-events:none}
+/* caption */
+#cap{left:80px;right:80px;top:930px}
+#cap h2{font-family:'Inter Display',Inter;font-size:62px;line-height:1.08;font-weight:700;letter-spacing:-.02em}
+#cap p{margin-top:16px;font-size:38px;line-height:1.3;color:#424245}
+#badge{left:80px;top:1240px;font-size:28px;font-weight:700;letter-spacing:.05em;padding:12px 24px;border-radius:999px}
+/* end */
+#end{inset:0;background:var(--bg);z-index:50;padding:170px 80px 0}
+#end .pl{display:inline-block;font-size:30px;font-weight:700;letter-spacing:.08em;padding:12px 26px;border-radius:999px;background:#E7F6EC;color:#1F7A3A}
+#end h1{font-family:'Inter Display',Inter;font-size:76px;line-height:1.05;letter-spacing:-.02em;margin:36px 0 40px}
+.row{display:flex;align-items:center;gap:24px;padding:24px 30px;border-radius:26px;background:#fff;border:2px solid var(--line);font-size:42px;font-weight:700;margin-bottom:18px}
+.row .k{width:58px;height:58px;border-radius:50%;color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;flex:none}
+#e5{margin-top:40px;font-size:40px;font-weight:700;color:#0066CC}
+#e6{margin-top:16px;font-size:36px;color:#424245}
+</style>
+
+<div id="bar" class="abs"></div>
+<div class="top abs"><div class="brand">DECODED <span>#02</span></div><div id="lvl"></div></div>
+
+<div id="hook" class="abs"><div class="hd"><i></i><i></i><i></i>&nbsp; localhost · Subhadeep's screen</div>
+  <div class="l1" id="hl1">Hi Subhadeep.</div><div class="l2" id="hl2">Your note:</div>
+  <div id="hpw">my-otp-4821</div>
+  <div id="htag">↑ That's Akshat's one-time password.</div></div>
+
+<div id="A" class="abs av" style="left:70px;top:230px"><div class="c" style="background:var(--blue)">A</div><div class="n">Akshat</div></div>
+<div id="S" class="abs av" style="left:70px;top:540px"><div class="c" style="background:var(--org)">S</div><div class="n">Subhadeep</div></div>
+<div id="v1" class="abs dot"></div><div id="v2" class="abs dot"></div><div id="v3" class="abs dot"></div>
+
+<div id="srv" class="abs"><div class="t">SERVER</div>
+  <div id="wk" class="abs"><div class="t2">Worker #1</div><div class="t3">reused for every visitor</div>
+    <div id="mem" class="abs"><div class="ml">MEMORY</div>
+      <div id="note" class="abs"><div class="nl" id="nl"></div><div class="nv" id="nv"></div></div>
+      <div id="sweep" class="abs"></div></div></div>
+  <div id="oom" class="abs">OUT OF MEMORY</div>
+  <div id="lifet" class="abs">Every request:</div>
+  <div id="p0" class="abs pill">Start</div><div id="p1" class="abs pill">Work</div><div id="p2" class="abs pill">Clean up</div>
+</div>
+
+<div id="zoom" class="abs"><div class="zt">Inside the worker's memory</div><div class="zs">PHP worker (PHP-FPM, mod_php…)</div>
+  <div id="grid" class="abs"></div>
+  <div id="legend" class="abs"><span><b style="background:#0071E3"></b>in use</span><span><b style="background:var(--red)"></b>half-cleaned</span><span><b style="background:#EEF1F6;border:2px solid #D2D2D7"></b>free</span></div>
+  <div id="zl" class="abs"></div>
+  <div id="rce" class="abs">Remote code execution · no login</div>
+</div>
+<svg id="ptr" class="abs" viewBox="0 0 1080 1350"><path id="pth" d="M205 605 C 300 610, 470 470, 638 455" fill="none" stroke="#FF9500" stroke-width="8" stroke-linecap="round"/><circle id="pthd" r="10" fill="#FF9500"/></svg>
+
+<div id="pk" class="abs"></div>
+<div id="chip" class="abs">my-otp-4821</div>
+<div id="bub" class="abs">Your note:<br><span class="bv" id="bubv"></span></div>
+
+<div id="cap" class="abs"><h2></h2><p></p></div>
+<div id="badge" class="abs"></div>
+<div id="flash" class="abs"></div>
+
+<div id="end" class="abs"><div class="pl">DECODER CARD</div>
+  <h1>Leftover data, decoded.</h1>
+  <div class="row" id="r0"><span class="k" style="background:var(--blue)">1</span>Servers reuse workers for speed</div>
+  <div class="row" id="r1"><span class="k" style="background:var(--red)">2</span>A crash skips the clean-up</div>
+  <div class="row" id="r2"><span class="k" style="background:var(--red)">3</span>The next visitor gets the leftovers</div>
+  <div class="row" id="r3"><span class="k" style="background:var(--green)">4</span>Fix: reset at the start of every request</div>
+  <div id="e5">Run the demo → github.com/JACOBIAN01/decoded</div>
+  <div id="e6">Next: how AI hunts for bugs.</div>
+</div>
+
+<script>
+const T=51.5; window.DURATION=T;
+const $=id=>document.getElementById(id);
+const C=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const E=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const EO=x=>1-Math.pow(1-x,3);
+const EB=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,a,b,e=E)=>e(C((t-a)/(b-a)));
+const L=(a,b,k)=>a+(b-a)*k;
+const win=(t,a,b,fi=.3,fo=.3)=>Math.max(0,Math.min(P(t,a,a+fi,EO),1-P(t,b-fo,b)));
+const wins=(t,ws)=>Math.max(0,...ws.map(w=>win(t,...w)));
+const at=(list,t)=>{let v=list[0][1];for(const [k,x] of list) if(t>=k) v=x;return v;};
+function tf(el,{x=0,y=0,s=1,r=0,o=1}){el.style.transform=`translate(${x}px,${y}px) scale(${s}) rotate(${r}deg)`;el.style.opacity=o;}
+const cache={};function txt(el,v,html){if(cache[el.id+(html?'h':'t')]===v)return;cache[el.id+(html?'h':'t')]=v;html?el.innerHTML=v:el.textContent=v;}
+const shake=(t,a,b,amp)=>t>=a&&t<b?Math.sin((t-a)*70)*amp*(1-(t-a)/(b-a)):0;
+
+const grid=$('grid');for(let i=0;i<24;i++)grid.appendChild(document.createElement('i'));
+const cells=[...grid.children];
+const ALLOC=[0,1,2,3,6,7,8,9,12,13,14,15],STALE=[8,9,14,15];
+const path=$('pth'),PL=path.getTotalLength();path.style.strokeDasharray=PL;
+
+const CAPS=[
+ [0,4.4,'A stranger\'s password just showed up <span style="color:var(--red)">on my screen</span>.','No hacker. No break-in. This is the bug class behind PHP2Shell.'],
+ [4.4,8.6,'Every website runs on a <span style="color:var(--blue)">server</span>.','Inside it, a worker handles each visitor\'s request.'],
+ [8.6,14.6,'Workers are <span style="color:var(--blue)">reused</span>, because starting fresh is slow.','So after every request, the worker cleans its memory.'],
+ [14.6,18.8,'Akshat saves his one-time password.','It sits in the worker\'s memory while his request runs.'],
+ [18.8,22.6,'His request <span style="color:var(--red)">crashes</span> halfway.','Out of memory. The clean-up step never runs.'],
+ [22.6,28.6,'Subhadeep gets the <span style="color:var(--red)">leftovers</span>.','Real output of our demo: "Your note: my-otp-4821"'],
+ [28.6,32.8,'Zoom in: real servers keep memory, not notes.','A crash mid-request can leave memory half-cleaned.'],
+ [32.8,36.6,'The next request lands on <span style="color:var(--org)">the same worker</span>.','It runs on top of stale, broken state.'],
+ [36.6,40.6,'That\'s <span style="color:var(--red)">PHP2Shell</span>.','Stale state let attackers run their own code on the server. No login. CVSS 9.2.'],
+ [40.6,45.8,'The fix: <span style="color:var(--green)">reset first</span>.','Clean memory at the START of every request, whatever happened before.'],
+ [45.8,48.6,'Running PHP? Update today.','8.5.12 · 8.4.27 · 8.3.36 · 8.2.35, then restart your workers.'],
+];
+const LVL=[[0,'THE LEAK'],[4.4,'1 · BASICS'],[14.6,'2 · THE BUG'],[28.6,'3 · UNDER THE HOOD'],[40.6,'4 · THE FIX']];
+const BADGE=[[0,['our','OUR BUILD · REAL DEMO OUTPUT']],[4.4,['our','SIMPLIFIED EXPLAINER']],[22.6,['our','OUR BUILD · npm start']],[28.6,['doc','DOCUMENTED · CVE-2026-109618 / 109619']],[40.6,['our','OUR BUILD · npm run fixed']],[45.8,['doc','DOCUMENTED · PHP SECURITY RELEASE']]];
+const PILL=[
+ [[0,'idle'],[9.6,'act'],[10.2,'ok'],[12.1,'idle'],[12.6,'act'],[12.9,'ok'],[14.4,'idle'],[15.0,'act'],[15.9,'ok'],[22.4,'idle'],[23.0,'act'],[23.9,'ok'],[28.6,'idle'],[43.25,'act'],[43.55,'ok'],[44.7,'idle'],[46.05,'act'],[46.35,'ok']],
+ [[0,'idle'],[10.2,'act'],[10.9,'ok'],[12.1,'idle'],[12.9,'act'],[13.3,'ok'],[14.4,'idle'],[15.9,'act'],[19.2,'bad'],[22.4,'idle'],[23.9,'act'],[28.6,'idle'],[43.55,'act'],[43.95,'bad'],[44.7,'idle'],[46.35,'act']],
+ [[0,'idle'],[10.9,'act'],[11.8,'ok'],[12.1,'idle'],[13.3,'act'],[14.0,'ok'],[14.4,'idle'],[20.2,'skip'],[22.4,'idle'],[42.95,'act'],[43.25,'ok'],[44.7,'idle'],[45.25,'act'],[46.05,'ok']],
+];
+const PSTY={idle:['#F5F5F7','#E5E5EA','#86868B','none'],act:['#EAF3FF','#0071E3','#0B5CC4','none'],ok:['#E7F6EC','#1F9D55','#1F7A3A','none'],bad:['#FDECEA','#D93025','#C2331B','none'],skip:['#F5F5F7','#D93025','#D93025','line-through']};
+const SLOT=[30,232,434];
+// packets: [t0,t1,from('A'|'S')]
+const PK=[[9.6,10.2,'A'],[12.0,12.6,'S'],[15.0,15.9,'A'],[23.0,23.9,'S'],[42.65,43.25,'A'],[44.65,45.25,'S']];
+const SRC={A:[205,295,'#0071E3'],S:[205,605,'#FF9500']};const MEMC=[685,486];
+
+window.render=function(t){
+ $('bar').style.width=(1080*t/T)+'px';
+ txt($('lvl'),at(LVL,t));
+ const bd=at(BADGE,t),be=$('badge');txt(be,bd[1]);be.style.background=bd[0]=='doc'?'#E8F1FD':'#F2F2F7';be.style.color=bd[0]=='doc'?'#0B5CC4':'#424245';
+ // caption
+ const cs=CAPS.find(c=>t>=c[0]&&t<c[1]);const cp=$('cap');
+ if(cs){txt(cp.querySelector('h2'),cs[2],1);txt(cp.querySelector('p'),cs[3],1);const k=win(t,cs[0],cs[1],.3,.25);tf(cp,{y:(1-k)*16,o:k});}else tf(cp,{o:0});
+ // hook
+ const hin=P(t,0,.45,EO),hout=P(t,4.0,4.5);
+ tf($('hook'),{s:L(.94,1,hin)*L(1,.96,hout),o:hin*(1-hout)});
+ const pwk=P(t,.45,.85,EB);tf($('hpw'),{s:L(1.5,1,pwk),o:C((t-.45)/.2),x:shake(t,.9,1.4,10)});
+ tf($('htag'),{y:(1-P(t,1.2,1.6,EO))*14,o:P(t,1.2,1.6)});
+ tf($('hl1'),{o:P(t,.1,.35)});tf($('hl2'),{o:P(t,.25,.5)});
+ // stage visibility
+ const st=win(t,4.3,49.3,.6,.4);
+ const avo=st, Sx=0;
+ tf($('A'),{o:avo,s:1+.08*Math.max(0,...PK.filter(p=>p[2]=='A').map(p=>win(t,p[0]-.15,p[0]+.35,.15,.25)))});
+ tf($('S'),{o:avo,s:1+.08*Math.max(0,...PK.filter(p=>p[2]=='S').map(p=>win(t,p[0]-.15,p[0]+.35,.15,.25)))});
+ // visitor stream (basics)
+ ['v1','v2','v3'].forEach((id,i)=>{const a=5.0+i*.8,k=P(t,a,a+1.3,E);const y=[400,450,500][i];
+   const e=$(id);e.style.left='0px';e.style.top='0px';tf(e,{x:L(200,350,k),y:y,o:win(t,a,a+1.3,.2,.3)*(t<8.6?1:0)});});
+ // server
+ const zin=P(t,28.6,29.4),zout=P(t,40.6,41.3);
+ const srvO=st*(1-zin+zout);
+ tf($('srv'),{o:srvO,y:(1-P(t,4.4,5.2,EO))*30, x:0});
+ tf($('wk'),{o:P(t,6.2,6.8),x:shake(t,19.2,19.9,14)+shake(t,43.95,44.4,12)});
+ // pills
+ const re=P(t,41.4,42.5),lift=Math.sin(Math.PI*re);
+ tf($('lifet'),{o:P(t,9.1,9.5)*(1-lift)});
+ [0,1,2].forEach(i=>{const e=$('p'+i);const s=PSTY[at(PILL[i],t)];
+   e.style.background=s[0];e.style.borderColor=s[1];e.style.color=s[2];e.style.textDecoration=s[3];
+   let x=SLOT[i],y=0;
+   if(i==2){x=L(SLOT[2],SLOT[0],re);y=-74*lift;} else {x=L(SLOT[i],SLOT[i+1],re);}
+   e.style.left=x+'px';tf(e,{y:y,o:P(t,9.1+i*.12,9.5+i*.12),s:at(PILL[i],t)=='act'?1.06:1});});
+ txt($('p2'),t>=41.95?'Reset':'Clean up');
+ // note
+ txt($('nl'),t<14.6?"Akshat's cart":"Akshat's password");txt($('nv'),t<14.6?'2 books':'my-otp-4821');
+ const nvis=wins(t,[[10.2,11.55,.3,.3],[15.9,28.9,.35,.3],[43.55,45.75,.3,.25]]);
+ const staleRing=t>=20.4&&t<28.9;
+ tf($('note'),{o:nvis,s:L(.85,1,nvis)});
+ $('note').style.boxShadow=staleRing?`0 0 0 ${7+5*Math.sin(t*6)}px rgba(217,48,37,.5),0 10px 24px rgba(0,0,0,.12)`:'0 10px 24px rgba(0,0,0,.12)';
+ // sweep
+ const sw=[[10.9,11.8],[13.3,14.0],[45.25,46.05]].find(w=>t>=w[0]&&t<w[1]);
+ tf($('sweep'),{x:sw?L(-100,560,P(t,sw[0],sw[1],E)):-200,o:sw?1:0});
+ // oom + flash
+ const oo=wins(t,[[19.2,21.4,.15,.3],[43.95,44.6,.1,.2]]);tf($('oom'),{o:oo,s:L(.8,1,P(t,19.2,19.45,EB))});
+ $('flash').style.opacity=.2*wins(t,[[19.2,19.6,.05,.3],[31.4,31.8,.05,.3],[43.95,44.3,.05,.25]]);
+ // packet
+ const pk=PK.find(p=>t>=p[0]&&t<p[1]);const pe=$('pk');
+ if(pk){const s=SRC[pk[2]],k=P(t,pk[0],pk[1],E);pe.style.left=L(s[0],MEMC[0],k)+'px';pe.style.top=(L(s[1],MEMC[1],k)-Math.sin(Math.PI*k)*60)+'px';pe.style.background=s[2];pe.style.opacity=1;}
+ else if(t>=33.9&&t<34.9){const k=P(t,33.9,34.9,E),pt=path.getPointAtLength(PL*k);pe.style.left=pt.x+'px';pe.style.top=pt.y+'px';pe.style.background='#FF9500';pe.style.opacity=1;}
+ else pe.style.opacity=0;
+ // chip flight (leftover goes to Subhadeep)
+ const ck=P(t,24.2,25.2,E),ce=$('chip');
+ if(t>=24.2&&t<25.3){ce.style.left=L(MEMC[0],205,ck)+'px';ce.style.top=(L(MEMC[1],800,ck)-Math.sin(Math.PI*ck)*80)+'px';ce.style.opacity=1;ce.style.transform=`scale(${L(1,.9,ck)})`;}else ce.style.opacity=0;
+ // bubble
+ const red=win(t,25.1,28.6,.25,.3),grn=win(t,46.05,48.9,.25,.3);const bb=$('bub');
+ if(red>0){txt($('bubv'),'my-otp-4821');bb.style.borderColor='#D93025';bb.style.color='#D93025';tf(bb,{o:red,s:L(.9,1,red)});}
+ else if(grn>0){txt($('bubv'),'(none)');bb.style.borderColor='#1F9D55';bb.style.color='#1F7A3A';tf(bb,{o:grn,s:L(.9,1,grn)});}
+ else tf(bb,{o:0});
+ // zoom
+ const zk=zin*(1-zout);
+ tf($('zoom'),{s:L(.42,1,zk),o:zk,x:shake(t,31.4,31.9,12)});
+ cells.forEach((c,i)=>{let bg='#EEF1F6',sh='none',o=1;const k=ALLOC.indexOf(i);
+   if(k>=0&&t>=29.6+k*.11&&t<41){bg='#0071E3';
+     if(t>=31.4){if(STALE.includes(i)){bg='repeating-linear-gradient(45deg,#FF8A80 0 9px,#D93025 9px 18px)';if(t>=34.7){sh='0 0 0 6px #FF9500';}if(t>=36.6)o=.7+.3*Math.sin(t*7);}
+       else if(t>=31.7+k*.05)bg='#EEF1F6';}}
+   c.style.background=bg;c.style.boxShadow=sh;c.style.opacity=o;});
+ txt($('zl'),at([[0,''],[29.3,'Request 1 (Akshat) takes memory.'],[31.4,'Out of memory: the request dies. Clean-up is cut short.'],[32.8,'Request 2 (Subhadeep) gets the same worker…'],[34.7,'…and reads the half-cleaned blocks.']],t));
+ tf($('zl'),{o:t<36.6?1:0});
+ tf($('rce'),{o:P(t,36.8,37.2),s:L(.85,1,P(t,36.8,37.2,EB))});
+ // pointer path
+ const pd=P(t,32.9,33.9,E)*(1-zout);path.style.strokeDashoffset=PL*(1-pd);
+ $('ptr').style.opacity=zk;const dp=path.getPointAtLength(PL*pd);$('pthd').setAttribute('cx',dp.x);$('pthd').setAttribute('cy',dp.y);$('pthd').style.opacity=pd>0&&pd<1?1:0;
+ // end card
+ const ek=P(t,48.6,49.1);tf($('end'),{o:ek});
+ [0,1,2,3].forEach(i=>{const k=P(t,49.0+i*.3,49.45+i*.3,EO);tf($('r'+i),{y:(1-k)*24,o:k});});
+ tf($('e5'),{o:P(t,50.2,50.5)});tf($('e6'),{o:P(t,50.4,50.7)});
+};
+window.render(0);
+if(!navigator.webdriver){const t0=performance.now();(function loop(){const t=(performance.now()-t0)/1000;window.render(t%(T+1));requestAnimationFrame(loop)})();}
+</script>
