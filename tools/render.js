@@ -47,7 +47,7 @@ ul{list-style:none;display:flex;flex-direction:column;gap:40px}
 li{font-size:44px;font-weight:600;line-height:1.25;padding-left:64px;position:relative}
 li:before{content:"✓";position:absolute;left:0;color:${C.green};font-weight:800}
 .wk{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.av{width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:#fff}
+.av{width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#fff}
 .box{flex:1;height:240px;border-radius:36px;border:4px dashed ${C.purple};display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:700;color:${C.purple};background:#F5F1FD}
 .card{background:#fff;border:2px solid #E5E5EA;border-radius:40px;padding:64px;display:flex;flex-direction:column;gap:44px;box-shadow:0 20px 60px rgba(0,0,0,.06)}
 .q{font-size:38px;line-height:1.35;color:${C.blue};font-weight:600}
@@ -70,7 +70,7 @@ function slide(num, sl, i, n) {
     case "big": m = `<div class="label">${esc(sl.label)}</div><div class="big">${esc(sl.big)}</div><div class="body">${esc(sl.body)}</div>`; break;
     case "timeline": m = `<div class="label">${esc(sl.label)}</div><div class="tl">${sl.items.map(([d, t]) => `<div><i>${esc(d)}</i><span>${esc(t)}</span></div>`).join("")}</div>`; break;
     case "worker": m = `<div class="label">${esc(sl.label)}</div><div class="big">${esc(sl.big)}</div>
-      <div class="wk"><div class="av" style="background:${C.blue}">Asha</div><div class="arrow">→</div><div class="box">Worker</div><div class="arrow">→</div><div class="av" style="background:${C.green}">Ravi</div></div>
+      <div class="wk"><div class="av" style="background:${C.blue}">Akshat</div><div class="arrow">→</div><div class="box">Worker</div><div class="arrow">→</div><div class="av" style="background:${C.green}">Subhadeep</div></div>
       <div class="body">${esc(sl.body)}</div>`; break;
     case "flow": m = `<div class="label">${esc(sl.label)}</div><div class="flow">${sl.steps.map(([t, s, c], k) => `${k ? '<div class="arrow">↓</div>' : ""}<div class="step" style="background:${C[c]}">${esc(t)}${s ? `<small>${esc(s)}</small>` : ""}</div>`).join("")}</div><div class="note">${esc(sl.note)}</div>`; break;
     case "code": m = `<div class="label">${esc(sl.label)}</div><pre>${hl(sl.code)}</pre><div class="body">${esc(sl.body)}</div>`; break;

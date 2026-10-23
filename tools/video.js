@@ -40,7 +40,7 @@ body{width:1080px;height:1350px;background:#FBFBFD;font-family:Inter,sans-serif;
 const B=${B},F=${F};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const show=id=>{document.querySelectorAll('.scene').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on')};
-function cls(l){return /❌|Asha's private/.test(l)?'bad':(/✅/.test(l)?'good':(/Your note: my-otp/.test(l)?'bad':''))}
+function cls(l){return /❌|Akshat's private/.test(l)?'bad':(/✅/.test(l)?'good':(/Your note: my-otp/.test(l)?'bad':''))}
 async function type(el,cmd){el.innerHTML='<span class="cmd">$ </span>';for(const c of cmd){el.innerHTML+=c;await sleep(55)}el.innerHTML+='\\n';}
 async function run(el,cmd,ls){await type(el,cmd);await sleep(400);for(const l of ls){const s=document.createElement('span');s.className=cls(l);s.textContent=l+'\\n';el.appendChild(s);await sleep(900)}}
 (async()=>{show('s0');await sleep(4000);show('s1');await sleep(500);await run(document.getElementById('t1'),${JSON.stringify(V.beforeCmd)},B);await sleep(2500);

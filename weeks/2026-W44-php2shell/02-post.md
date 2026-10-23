@@ -2,13 +2,13 @@
 
 ## Hooks (5; ★ = used)
 1. ★ I built a tiny server that leaks one visitor's password to the next. Here's the bug behind PHP2Shell, live.
-2. Ravi just saw Asha's one-time password. The server didn't get hacked. It just forgot to clean up.
+2. Subhadeep just saw Akshat's one-time password. The server didn't get hacked. It just forgot to clean up.
 3. 98 s, motion graphiceconds. One crash. One leaked secret. One-line fix.
 4. Yesterday I explained PHP2Shell. Today, watch the bug happen.
 5. The most dangerous line of code is the clean-up you skipped.
 
 ## Caption (as scheduled in Buffer, updated 23 Oct for the motion-graphic video)
-Ravi just saw Asha's one-time password. Nobody hacked anything.
+Subhadeep just saw Akshat's one-time password. Nobody hacked anything.
 A server forgot to clean up. That same mistake sits behind PHP2Shell.
 
 In 98 seconds, from zero: server and worker, why workers are reused, how a crash skips the clean-up, how leftover data reaches the next visitor, what it looks like in real memory, and the fix.

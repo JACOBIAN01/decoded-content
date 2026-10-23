@@ -10,7 +10,7 @@ body{width:1080px;height:1350px;background:var(--bg);font-family:Inter,sans-seri
 #stage{position:absolute;left:80px;top:190px;width:920px;height:760px;transition:opacity .5s}
 .av{position:absolute;left:0;width:120px;transition:transform .9s cubic-bezier(.4,0,.2,1),opacity .6s}
 .av .c{width:120px;height:120px;border-radius:50%;color:#fff;font-size:56px;font-weight:700;display:flex;align-items:center;justify-content:center}
-.av .n{margin-top:8px;text-align:center;font-size:26px;font-weight:600;color:#424245}
+.av .n{margin-top:8px;width:200px;margin-left:-40px;white-space:nowrap;text-align:center;font-size:26px;font-weight:600;color:#424245}
 .av.in{transform:translateX(190px)}
 .av.gone{opacity:0}
 .av.ghost.in{transform:translateX(190px) scale(.6)}
@@ -78,12 +78,12 @@ body{width:1080px;height:1350px;background:var(--bg);font-family:Inter,sans-seri
 <div id="lvl"></div>
 
 <div id="hook"><div class="pill">The leak</div>
-  <div class="big">Ravi just saw Asha's one‑time password.</div>
+  <div class="big">Subhadeep just saw Akshat's one‑time password.</div>
   <div class="sub">No hacker. No break‑in.<br>Just one skipped clean‑up.</div></div>
 
 <div id="stage">
-  <div class="av" id="asha" style="top:40px"><div class="c" style="background:var(--blue)">A</div><div class="n">Asha</div><div class="say" id="sa"></div></div>
-  <div class="av" id="ravi" style="top:400px"><div class="c" style="background:var(--org)">R</div><div class="n">Ravi</div><div class="say" id="sr"></div></div>
+  <div class="av" id="asha" style="top:40px"><div class="c" style="background:var(--blue)">A</div><div class="n">Akshat</div><div class="say" id="sa"></div></div>
+  <div class="av" id="ravi" style="top:400px"><div class="c" style="background:var(--org)">S</div><div class="n">Subhadeep</div><div class="say" id="sr"></div></div>
   <div class="av ghost" id="g1" style="top:300px;transform:scale(.6)"><div class="c"></div></div>
   <div class="av ghost" id="g2" style="left:80px;top:300px;transform:scale(.6)"><div class="c"></div></div>
   <div class="av ghost" id="g3" style="top:640px;transform:scale(.6)"><div class="c"></div></div>
@@ -91,7 +91,7 @@ body{width:1080px;height:1350px;background:var(--bg);font-family:Inter,sans-seri
     <div id="srvtxt">A program that answers every visitor.</div>
     <div id="worker"><div class="t">Worker #1</div>
       <div id="desk"><div class="l">DESK = MEMORY</div>
-        <div id="note"><small>Asha's private note</small><b>my-otp-4821</b></div>
+        <div id="note"><small>Akshat's private note</small><b>my-otp-4821</b></div>
         <div id="stalelbl">Still here. Nobody cleaned it.</div>
         <svg id="broom" viewBox="0 0 200 200"><line x1="20" y1="30" x2="110" y2="120" stroke="#8B5E34" stroke-width="12" stroke-linecap="round"/><path d="M95 105 L150 160 L110 190 L70 145 Z" fill="#E0B050" stroke="#B88A2A" stroke-width="4"/></svg>
       </div></div>
@@ -159,34 +159,34 @@ const note=on=>$('note').classList.toggle('show',on);
 
  // LEVEL 3: normal day
  lvl(2,'LEVEL 3 · A normal day');
- await cap('Normal day: Asha saves her password note.','It sits on the desk while the worker works.');
+ await cap('Normal day: Akshat saves his password note.','It sits on the desk while the worker works.');
  go('asha',true);await sleep(1000);
  st(0,'act');note(true);await sleep(1400);st(0,'ok');
  st(1,'act');say('sa','Saved.');await sleep(1300);st(1,'ok');
- await cap('Then the worker cleans the desk.','Note gone. Asha leaves.');
+ await cap('Then the worker cleans the desk.','Note gone. Akshat leaves.');
  st(2,'act');await sweep();st(2,'ok');hush('sa');go('asha',false);await sleep(500);
  stReset();
  go('ravi',true);await sleep(900);
  st(0,'act');await sleep(700);st(0,'ok');st(1,'act');say('sr','Your note: (none)','good');
- await cap('Ravi arrives next. Clean desk.','He sees nothing of Asha\'s. This is how it should work.');
+ await cap('Subhadeep arrives next. Clean desk.','He sees nothing of Akshat\'s. This is how it should work.');
  await sleep(2600);st(1,'ok');hush('sr');go('ravi',false);stReset();await sleep(600);
 
  // LEVEL 4: crash
  lvl(3,'LEVEL 4 · The bug');
- await cap('Now Asha\'s request <span style="color:var(--red)">crashes</span> halfway.','Out of memory, mid-job.');
+ await cap('Now Akshat\'s request <span style="color:var(--red)">crashes</span> halfway.','Out of memory, mid-job.');
  go('asha',true);await sleep(1000);
  st(0,'act');note(true);await sleep(1200);st(0,'ok');st(1,'act');await sleep(800);
  $('worker').classList.add('shake');$('boom').classList.add('show');st(1,'bad');await sleep(1600);
  $('worker').classList.remove('shake');$('boom').classList.remove('show');
  st(2,'skip');
- await cap('The clean-up step <span style="color:var(--red)">never runs</span>.','Her note is still on the desk.');
+ await cap('The clean-up step <span style="color:var(--red)">never runs</span>.','His note is still on the desk.');
  $('note').classList.add('stale');$('stalelbl').style.opacity=1;
  hush('sa');go('asha',false);await sleep(3200);
  stReset();
  go('ravi',true);await sleep(900);st(0,'act');await sleep(600);st(0,'ok');st(1,'act');
  say('sr','Your note: my-otp-4821','bad');
  tag('our','Our build · real output of npm start');
- await cap('Ravi is handed <span style="color:var(--red)">Asha\'s password</span>.','Real server reply: "Hi Ravi. Your note: my-otp-4821"');
+ await cap('Subhadeep is handed <span style="color:var(--red)">Akshat\'s password</span>.','Real server reply: "Hi Subhadeep. Your note: my-otp-4821"');
  await sleep(4600);
  hush('sr');go('ravi',false);stReset();
 
@@ -196,7 +196,7 @@ const note=on=>$('note').classList.toggle('show',on);
  $('worker').style.opacity=0;$('steps').style.opacity=0;$('mem').style.opacity=1;
  await cap('Real servers keep more than a note.','Millions of tiny memory blocks.');
  [0,1,2,3,9,10,11,17,18,19,25,26].forEach((i,k)=>setTimeout(()=>cells[i].classList.add('use'),k*160));
- $('memnote').textContent='Request 1 (Asha) fills blocks.';
+ $('memnote').textContent='Request 1 (Akshat) fills blocks.';
  await sleep(3600);
  await cap('A bad crash leaves memory <span style="color:var(--red)">half-cleaned</span>.','Broken blocks stay behind.');
  [10,11,18,19].forEach(i=>{cells[i].classList.remove('use');cells[i].classList.add('stale');});
@@ -206,7 +206,7 @@ const note=on=>$('note').classList.toggle('show',on);
  go('ravi',true);
  await cap('The next request reuses that worker.','And inherits the broken leftovers.');
  [10,11,18,19].forEach(i=>cells[i].classList.add('touch'));
- $('memnote').textContent='Request 2 (Ravi) runs on top of them.';
+ $('memnote').textContent='Request 2 (Subhadeep) runs on top of them.';
  await sleep(4200);
  await cap('That is the idea behind <span style="color:var(--red)">PHP2Shell</span>.','Leftover state let strangers run code on a server, no login needed. CVSS 9.2.');
  await sleep(5200);
@@ -224,7 +224,7 @@ const note=on=>$('note').classList.toggle('show',on);
  $('worker').classList.remove('shake');$('boom').classList.remove('show');st(2,'skip');
  go('asha',false);await sleep(800);stReset();
  go('ravi',true);await sleep(800);
- await cap('Ravi arrives. Reset runs <em>before</em> anything else.','Even after a crash, the desk starts clean.');
+ await cap('Subhadeep arrives. Reset runs <em>before</em> anything else.','Even after a crash, the desk starts clean.');
  st(0,'act');const b=$('broom');b.style.opacity=1;await sweep();st(0,'ok');st(1,'act');
  say('sr','Your note: (none)','good');
  await sleep(3600);

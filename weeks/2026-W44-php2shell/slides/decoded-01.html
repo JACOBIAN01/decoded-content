@@ -37,7 +37,7 @@ ul{list-style:none;display:flex;flex-direction:column;gap:40px}
 li{font-size:44px;font-weight:600;line-height:1.25;padding-left:64px;position:relative}
 li:before{content:"✓";position:absolute;left:0;color:#1F7A3A;font-weight:800}
 .wk{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.av{width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:#fff}
+.av{width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#fff}
 .box{flex:1;height:240px;border-radius:36px;border:4px dashed #6A3FC6;display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:700;color:#6A3FC6;background:#F5F1FD}
 .card{background:#fff;border:2px solid #E5E5EA;border-radius:40px;padding:64px;display:flex;flex-direction:column;gap:44px;box-shadow:0 20px 60px rgba(0,0,0,.06)}
 .q{font-size:38px;line-height:1.35;color:#0066CC;font-weight:600}
@@ -52,7 +52,7 @@ li:before{content:"✓";position:absolute;left:0;color:#1F7A3A;font-weight:800}
   <div class="main"><div class="label">The idea</div><div class="big">A hotel room nobody cleaned.</div><div class="body">A guest leaves in a rush. The cleaner skips the room. The next guest finds their things.</div></div>
   <div class="foot"><span>Subhadeep Ghorai</span></div></section><section class="s"><div class="top"><span><b>Decoded</b> #01</span><span>5 / 9</span></div>
   <div class="main"><div class="label">How it works · 1</div><div class="big">Servers reuse workers.</div>
-      <div class="wk"><div class="av" style="background:#0066CC">Asha</div><div class="arrow">→</div><div class="box">Worker</div><div class="arrow">→</div><div class="av" style="background:#1F7A3A">Ravi</div></div>
+      <div class="wk"><div class="av" style="background:#0066CC">Akshat</div><div class="arrow">→</div><div class="box">Worker</div><div class="arrow">→</div><div class="av" style="background:#1F7A3A">Subhadeep</div></div>
       <div class="body">One worker serves visitor after visitor. Fast, because nothing is rebuilt each time.</div></div>
   <div class="foot"><span>Subhadeep Ghorai</span></div></section><section class="s"><div class="top"><span><b>Decoded</b> #01</span><span>6 / 9</span></div>
   <div class="main"><div class="label">How it works · 2</div><div class="flow"><div class="step" style="background:#C2331B">Request crashes<small>e.g. out of memory</small></div><div class="arrow">↓</div><div class="step" style="background:#C2331B">Clean‑up skipped</div><div class="arrow">↓</div><div class="step" style="background:#6A3FC6">Leftover state<small>stays in memory</small></div><div class="arrow">↓</div><div class="step" style="background:#6A3FC6">Next request uses it</div></div><div class="note">In PHP, that leftover state could let an attacker run code.</div></div>
