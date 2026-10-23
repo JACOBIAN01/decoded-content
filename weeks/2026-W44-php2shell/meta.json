@@ -7,12 +7,12 @@
   "posts": [
     {
       "id": "01",
-      "slot": "Tue",
-      "due": "2026-10-27T10:00:00+05:30",
+      "slot": "Sun",
+      "due": "2026-10-25T20:00:00+05:30",
       "format": "carousel",
       "slides": 9,
       "topic_type": "security",
-      "hook_style": "shocking number",
+      "hook_style": "attributed claim + stat",
       "india_angle": false,
       "asset": "01-leftover-data/slides/decoded-01.pdf",
       "buffer_post_id": "6ada2bb5a6a09108d2727f43"
@@ -42,5 +42,5 @@
       "buffer_post_id": "6ada2bc4e8cca8cdcc5b779c"
     }
   ],
-  "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@a3e9f77/ (posts 01 and 02); post 03 @fa5c1d9"
+  "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@75ce232/ (posts 01, 03); post 02 @ecfd414"
 }

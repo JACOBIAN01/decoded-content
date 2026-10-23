@@ -23,10 +23,14 @@ Verified 22 Oct 2026. Every claim used on a slide must appear here with its tag.
 | ~5.1 million PHP hosts exposed online (VirusTotal estimate) | BleepingComputer |
 | Cloudflare deployed free WAF rules; patching is the only permanent fix | BleepingComputer, Help Net Security |
 
+| WordPress runs on PHP (PHP is a required host capability; "PHP version 8.3 or greater" recommended) | WordPress.org requirements page (checked 23 Oct 2026) |
+
 ## Wording rules
 
 - Say "about 70% of websites (that use a known server language)", not "70% of the internet".
 - Say "the bug sat in PHP for 14 years, according to OpenAI".
+- Cover/caption line 1 must attribute: "OpenAI says AI helped find a 14-year-old bug in PHP" (never state the 14 years as bare fact). Use "about 7 in 10 sites we can identify" or "with a known server language" with the 70% figure; never "70% of websites" or "70% of the internet".
+- Never say a PHP flaw "exposes everyone who visits" (not documented). Say attackers could run code on the server.
 - Say "AI helped find it", not "AI found it alone": humans at Calif, Wiz and OpenAI did the work with AI tools.
 
 ## Do NOT claim
