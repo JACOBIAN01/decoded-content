@@ -7,3 +7,4 @@
 - Demo code goes in the public repo JACOBIAN01/decoded, under ~100 lines of plain JS, no paid keys.
 - Never publish or schedule to Buffer without the post passing the checklist in post-selection-rules §6.
 - Quiet weeks (no verified trending story scoring 18+/26) use a ready-made week from `archive/` and `decoded/archive.md`; mark it used.
+- Wednesday videos are motion graphics, never terminal recordings: follow `tools/MOTION-GRAPHICS.md` (10 rules, storyboard, engine, QA checklist), start from `tools/motion-template.html`, render with `tools/frames.js`.

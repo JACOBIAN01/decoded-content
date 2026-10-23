@@ -1,0 +1,87 @@
+<!doctype html><meta charset="utf-8"><title>Decoded motion template</title>
+<!-- Starter for a Decoded motion graphic. Copy to weeks/<week>/motion.html, then replace the scenes.
+     Contract: window.DURATION + window.render(t). No CSS transitions/animations, no timers. See tools/MOTION-GRAPHICS.md. -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1D1D1F;--mute:#6E6E73;--blue:#0071E3;--red:#D93025;--green:#1F9D55;--org:#FF9500;--line:#E5E5EA;--bg:#FBFBFD}
+body{width:1080px;height:1350px;background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);overflow:hidden;position:relative}
+.abs{position:absolute}
+#bar{left:0;top:0;height:8px;background:var(--blue)}
+.top{left:80px;right:80px;top:48px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:30px;font-weight:700;letter-spacing:.08em}.brand span{color:var(--mute);font-weight:600}
+#lvl{font-size:28px;font-weight:700;letter-spacing:.06em;padding:10px 22px;border-radius:999px;background:#EAF3FF;color:#0B5CC4}
+#hook{left:110px;top:220px;width:860px;padding:56px;background:#fff;border-radius:44px;border:2px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.08);z-index:30}
+#hook .k{font-size:44px;font-weight:600}
+#hook .v{margin-top:26px;display:inline-block;font-family:'DejaVu Sans Mono',monospace;font-size:88px;font-weight:700;color:var(--red);background:#FDECEA;border:4px solid var(--red);border-radius:24px;padding:14px 34px;white-space:nowrap}
+.av{left:70px;width:130px}.av .c{width:130px;height:130px;border-radius:50%;color:#fff;font-size:62px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.av .n{width:220px;margin-left:-45px;text-align:center;margin-top:8px;font-size:32px;font-weight:700;color:#424245;white-space:nowrap}
+#sys{left:360px;top:180px;width:650px;height:700px;background:#fff;border-radius:40px;border:2px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.06)}
+#sys .t{position:absolute;left:34px;top:26px;font-size:28px;font-weight:700;letter-spacing:.12em;color:var(--mute)}
+#box{left:60px;top:140px;width:530px;height:300px;border-radius:24px;background:#F5F5F7;border:3px dashed #C7C7CC}
+#data{left:120px;top:210px;padding:20px 28px;background:#FFE680;border-radius:12px;font-family:'DejaVu Sans Mono',monospace;font-size:48px;font-weight:700;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+#pk{width:40px;height:40px;border-radius:50%;margin:-20px 0 0 -20px;z-index:25}
+#cap{left:80px;right:80px;top:930px}
+#cap h2{font-family:'Inter Display',Inter;font-size:62px;line-height:1.08;font-weight:700;letter-spacing:-.02em}
+#cap p{margin-top:16px;font-size:38px;line-height:1.3;color:#424245}
+#badge{left:80px;top:1240px;font-size:28px;font-weight:700;letter-spacing:.05em;padding:12px 24px;border-radius:999px}
+#flash{inset:0;background:var(--red);z-index:40;pointer-events:none}
+#end{inset:0;background:var(--bg);z-index:50;padding:170px 80px 0}
+#end .pl{display:inline-block;font-size:30px;font-weight:700;letter-spacing:.08em;padding:12px 26px;border-radius:999px;background:#E7F6EC;color:#1F7A3A}
+#end h1{font-family:'Inter Display',Inter;font-size:76px;line-height:1.05;margin:36px 0 40px}
+.row{display:flex;align-items:center;gap:24px;padding:24px 30px;border-radius:26px;background:#fff;border:2px solid var(--line);font-size:42px;font-weight:700;margin-bottom:18px}
+.row .k{width:58px;height:58px;border-radius:50%;color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;flex:none}
+#e5{margin-top:40px;font-size:40px;font-weight:700;color:#0066CC}
+</style>
+<div id="bar" class="abs"></div>
+<div class="top abs"><div class="brand">DECODED <span>#NN</span></div><div id="lvl"></div></div>
+<div id="hook" class="abs"><div class="k">THE PAYOFF, STATED PLAINLY</div><div class="v">scary-token</div></div>
+<div id="A" class="abs av" style="top:300px"><div class="c" style="background:var(--blue)">A</div><div class="n">Person A</div></div>
+<div id="sys" class="abs"><div class="t">SYSTEM</div><div id="box" class="abs"></div><div id="data" class="abs">data</div></div>
+<div id="pk" class="abs"></div>
+<div id="cap" class="abs"><h2></h2><p></p></div>
+<div id="badge" class="abs"></div><div id="flash" class="abs"></div>
+<div id="end" class="abs"><div class="pl">DECODER CARD</div><h1>Topic, decoded.</h1>
+  <div class="row" id="r0"><span class="k" style="background:var(--blue)">1</span>Building block</div>
+  <div class="row" id="r1"><span class="k" style="background:var(--red)">2</span>What goes wrong</div>
+  <div class="row" id="r2"><span class="k" style="background:var(--green)">3</span>The fix</div>
+  <div id="e5">Run the demo → github.com/JACOBIAN01/decoded</div></div>
+<script>
+// ---------- engine (keep) ----------
+const $=id=>document.getElementById(id);
+const C=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const E=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2, EO=x=>1-Math.pow(1-x,3);
+const EB=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,a,b,e=E)=>e(C((t-a)/(b-a))), L=(a,b,k)=>a+(b-a)*k;
+const win=(t,a,b,fi=.3,fo=.3)=>Math.max(0,Math.min(P(t,a,a+fi,EO),1-P(t,b-fo,b)));
+const wins=(t,ws)=>Math.max(0,...ws.map(w=>win(t,...w)));
+const at=(list,t)=>{let v=list[0][1];for(const [k,x] of list) if(t>=k) v=x;return v;};
+const tf=(el,{x=0,y=0,s=1,r=0,o=1})=>{el.style.transform=`translate(${x}px,${y}px) scale(${s}) rotate(${r}deg)`;el.style.opacity=o;};
+const shake=(t,a,b,amp)=>t>=a&&t<b?Math.sin((t-a)*70)*amp*(1-(t-a)/(b-a)):0;
+const cache={};const txt=(el,v,html)=>{const k=el.id+(html?'h':'t');if(cache[k]===v)return;cache[k]=v;html?el.innerHTML=v:el.textContent=v;};
+
+// ---------- timeline (replace per topic) ----------
+const T=14; window.DURATION=T;
+const CAPS=[[0,3.6,'Hook line: the surprising true fact.','What this is, in one line.'],[3.6,8,'Basics: the building block.','One everyday metaphor.'],[8,11.5,'The bug: <span style="color:var(--red)">it breaks</span>.','Show cause → effect.']];
+const LVL=[[0,'THE HOOK'],[3.6,'1 · BASICS'],[8,'2 · THE BUG']];
+const BADGE=[[0,['our','OUR BUILD']],[3.6,['our','SIMPLIFIED EXPLAINER']],[8,['doc','DOCUMENTED · SOURCE']]];
+
+window.render=function(t){
+ $('bar').style.width=(1080*t/T)+'px'; txt($('lvl'),at(LVL,t));
+ const b=at(BADGE,t),be=$('badge');txt(be,b[1]);be.style.background=b[0]=='doc'?'#E8F1FD':'#F2F2F7';be.style.color=b[0]=='doc'?'#0B5CC4':'#424245';
+ const cs=CAPS.find(c=>t>=c[0]&&t<c[1]),cp=$('cap');
+ if(cs){txt(cp.firstElementChild,cs[2],1);txt(cp.lastElementChild,cs[3],1);const k=win(t,cs[0],cs[1],.3,.25);tf(cp,{y:(1-k)*16,o:k});}else tf(cp,{o:0});
+ // cold open (stamp)
+ const hin=P(t,0,.45,EO),hout=P(t,3.2,3.7);tf($('hook'),{s:L(.94,1,hin),o:hin*(1-hout)});
+ tf($('hook').lastElementChild,{s:L(1.5,1,P(t,.45,.85,EB)),o:C((t-.45)/.2),x:shake(t,.9,1.4,10)});
+ // stage
+ const st=win(t,3.4,11.8,.6,.4);tf($('A'),{o:st});tf($('sys'),{o:st,y:(1-P(t,3.6,4.4,EO))*30,x:shake(t,9,9.6,14)});
+ // packet A -> box (arc)
+ const pe=$('pk');if(t>=5&&t<6){const k=P(t,5,6);pe.style.left=L(205,685,k)+'px';pe.style.top=(L(365,500,k)-Math.sin(Math.PI*k)*60)+'px';pe.style.background='#0071E3';pe.style.opacity=1;}else pe.style.opacity=0;
+ tf($('data'),{o:win(t,6,11.8,.3,.3),s:L(.85,1,P(t,6,6.4,EB))});
+ $('flash').style.opacity=.2*win(t,9,9.35,.05,.3);
+ // end card
+ tf($('end'),{o:P(t,11.6,12.1)});[0,1,2].forEach(i=>{const k=P(t,12+i*.3,12.45+i*.3,EO);tf($('r'+i),{y:(1-k)*24,o:k});});tf($('e5'),{o:P(t,13,13.3)});
+};
+window.render(0);
+if(!navigator.webdriver){const t0=performance.now();(function loop(){window.render(((performance.now()-t0)/1000)%(T+1));requestAnimationFrame(loop)})();}
+</script>
