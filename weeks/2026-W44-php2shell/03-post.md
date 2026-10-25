@@ -8,7 +8,7 @@
 5. Calif, Wiz and OpenAI all found the same bug. Here's how AI reads code for flaws.
 
 ## Caption
-AI spotted a bug humans missed for 14 years.
+OpenAI says AI helped spot a bug humans missed for 14 years.
 Attackers have the same AI. So how does the hunt actually work?
 
 The PHP2Shell timeline:

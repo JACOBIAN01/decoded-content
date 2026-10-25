@@ -43,8 +43,8 @@ module.exports = {
   "decoded-03": {
     num: "03",
     slides: [
-      { type: "hook", pill: "AI vs AI", kicker: "Calif, Wiz and OpenAI used AI to hunt PHP bugs",
-        title: "AI spotted a bug humans missed for 14 years.",
+      { type: "hook", pill: "AI vs AI",
+        title: "OpenAI says AI helped spot a bug humans missed for 14 years.",
         sub: "Attackers have the same AI. Here's how the hunt works." },
       { type: "big", label: "Why you should care", big: "Bug‑hunting just got faster. For everyone.",
         body: "“Tools now find bugs faster than ever, for defenders and attackers alike.” (PHP Foundation)",

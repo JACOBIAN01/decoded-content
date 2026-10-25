@@ -13,11 +13,12 @@ const css = `
 @page{size:1080px 1350px;margin:0}
 body{font-family:Inter,sans-serif;color:#1D1D1F;-webkit-font-smoothing:antialiased}
 .s{width:1080px;height:1350px;background:#FBFBFD;position:relative;padding:96px 88px;display:flex;flex-direction:column;page-break-after:always;overflow:hidden}
+.s.cover{padding-top:200px}.s.cover .top{display:none}
 .top{display:flex;justify-content:space-between;font-size:28px;font-weight:600;letter-spacing:.08em;color:#86868B;text-transform:uppercase}
 .top b{color:#1D1D1F}
 .main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px}
 .label{font-size:30px;font-weight:600;color:${C.purple};letter-spacing:.02em}
-.kicker{font-size:32px;color:#6E6E73;font-weight:500}
+.kicker{font-size:38px;color:#424245;font-weight:600}
 .title{font-family:'Inter Display',Inter;font-size:92px;line-height:1.04;font-weight:700;letter-spacing:-.025em}
 .sub{font-size:52px;font-weight:600;color:${C.blue}}
 .big{font-family:'Inter Display',Inter;font-size:84px;line-height:1.06;font-weight:700;letter-spacing:-.02em}
@@ -26,7 +27,7 @@ body{font-family:Inter,sans-serif;color:#1D1D1F;-webkit-font-smoothing:antialias
 .foot>span{flex-shrink:0;margin-right:40px}
 .foot>div{text-align:right}
 .pill{align-self:flex-start;background:#FDECEA;color:#C2331B;font-weight:700;font-size:28px;letter-spacing:.06em;padding:12px 24px;border-radius:999px;text-transform:uppercase}
-.swipe{font-size:30px;font-weight:600;color:#86868B;margin-top:24px}
+.swipe{font-size:38px;font-weight:700;color:#424245;margin-top:24px}
 .badge{display:inline-block;padding:10px 20px;border-radius:999px;font-weight:700;font-size:26px;letter-spacing:.04em;text-transform:uppercase}
 .Documented{background:#E8F1FB;color:${C.blue}}
 .Our{background:#EEE8FA;color:${C.purple}}
@@ -67,7 +68,7 @@ function hl(code) {
 function slide(num, sl, i, n) {
   let m = "";
   switch (sl.type) {
-    case "hook": m = `${sl.pill ? `<div class="pill">${esc(sl.pill)}</div>` : ""}<div class="kicker">${esc(sl.kicker)}</div><div class="title">${esc(sl.title)}</div><div class="sub">${esc(sl.sub)}</div><div class="swipe">${esc(sl.swipe || "Swipe →")}</div>`; break;
+    case "hook": m = `${sl.pill ? `<div class="pill">${esc(sl.pill)}</div>` : ""}${sl.kicker ? `<div class="kicker">${esc(sl.kicker)}</div>` : ""}<div class="title">${esc(sl.title)}</div><div class="sub">${esc(sl.sub)}</div><div class="swipe">${esc(sl.swipe || "Swipe →")}</div>`; break;
     case "big": m = `<div class="label">${esc(sl.label)}</div><div class="big">${esc(sl.big)}</div><div class="body">${esc(sl.body)}</div>`; break;
     case "timeline": m = `<div class="label">${esc(sl.label)}</div><div class="tl">${sl.items.map(([d, t]) => `<div><i>${esc(d)}</i><span>${esc(t)}</span></div>`).join("")}</div>`; break;
     case "worker": m = `<div class="label">${esc(sl.label)}</div><div class="big">${esc(sl.big)}</div>
@@ -79,7 +80,7 @@ function slide(num, sl, i, n) {
     case "list": m = `<div class="label">${esc(sl.label)}</div><ul>${sl.items.map(t => `<li>${esc(t)}</li>`).join("")}</ul>`; break;
     case "card": m = `<div class="label">Decoder card</div><div class="card"><div class="big" style="font-size:66px">${esc(sl.big)}</div>${sl.chain ? `<div class="chain">${sl.chain.map(([t, c], k) => `${k ? '<span class="ar">→</span>' : ""}<span class="ch" style="background:${C[c]}">${esc(t)}</span>`).join("")}</div>` : ""}<div class="q">${esc(sl.question)}</div><div class="next">${esc(sl.next)} →</div></div>`; break;
   }
-  return `<section class="s"><div class="top"><span><b>Decoded</b> #${num}</span><span>${i + 1} / ${n}</span></div>
+  return `<section class="s${i === 0 ? " cover" : ""}"><div class="top"><span><b>Decoded</b> #${num}</span><span>${i + 1} / ${n}</span></div>
   <div class="main">${m}</div>
   <div class="foot"><span>Subhadeep Ghorai</span>${badge(sl)}</div></section>`;
 }

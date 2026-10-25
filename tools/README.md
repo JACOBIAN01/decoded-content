@@ -41,3 +41,9 @@ Update `meta.json` (status, buffer_post_id per post, asset_base) and add the wee
 Write the video as a timeline: the page defines `window.DURATION` and `window.render(t)` (pure function of time). Render deterministically, one frame at a time:
 `NODE_PATH=$(npm root -g) node tools/frames.js weeks/<week>/motion.html <out>.mp4 30` (use `--stills 2,10,20` to check frames first).
 Rules learned from the Week 1 critique: open on the payoff in the first 2 s; 45-55 s total; every second has motion; text at least 28 px; animate cause and effect (data moving), not just state swaps; one short labelled engineer layer; end card 3 s; Buffer thumbnailOffset on the hook frame (~1500-2000 ms). See `weeks/2026-W44-php2shell/motion-v2.html`.
+
+## Carousel cover and document-title rules (learned from Decoded #01 on LinkedIn mobile)
+- LinkedIn shows a document post as a swipeable strip (page 1 next to a sliver of page 2) and overlays a grey chip with the document title and page count on the top ~12% of page 1. So: **keep the top 200 px of the cover empty** (the renderer hides the header bar on slide 1 for this), and set the Buffer document `title` to **20 characters or fewer** (e.g. "How AI hunts bugs").
+- Cover text: pill (optional), headline, one blue supporting line, "Swipe →" at 38 px. No kicker or date lines under 38 px; nothing on any slide under 28 px.
+- Cover claims carry their qualifier or attribution ("OpenAI says…", "about 7 in 10 sites we can identify").
+- A full-screen look in the feed only comes from a single image or a video; documents always render as the strip.
