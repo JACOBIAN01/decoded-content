@@ -1,45 +1,66 @@
 # How to make a Decoded motion graphic (use this every week)
 
-The Wednesday post of every Decoded week is a **motion-graphic explainer**: a 45–55 s silent video that teaches one mechanism from zero, then goes one level deeper for engineers. It is **never** a screen recording of terminal logs.
+The Wednesday post of every Decoded week is a **silent, muted-first motion-graphic explainer**: 30–40 s that teaches one mechanism from zero, then goes one level deeper for engineers. It is **never** a screen recording of terminal logs, and it never relies on sound: most people watch the feed muted, and we have no voiceover.
 
-Reference build: `weeks/2026-W44-php2shell/motion-v2.html` (Decoded #02, PHP2Shell).
+Reference build: `weeks/2026-W44-php2shell/motion-v2.html` (Decoded #02, PHP2Shell). It predates the v3 rules below; follow the rules, not its timings.
 Starter file: `tools/motion-template.html`. Renderer: `tools/frames.js`.
 
 ---
 
-## 1. The 10 rules (from the Week 1 critique)
+## 0. Why v3 (Week 1 data, Decoded #02)
+
+| Metric | #02 (51.5 s) | EventLoop baseline | v3 target |
+|---|---|---|---|
+| Video hook rate (views ÷ impressions) | **24.7%** | 43% | **≥ 35%** |
+| Avg watch (watch time ÷ views) | **7.7 s** (15% of the video) | ~11 s | **≥ 12 s** |
+| Comments | 0 | 0 | **≥ 2** |
+
+Read: people decided in the first 1–2 s (the opening card was small and unclear at feed size), and the ones who started left at about 8 s, before the payoff was explained. So v3 front-loads the payoff in **huge text**, shortens the video, and puts every idea on screen as words, not sound.
+
+Check these three numbers in every metrics snapshot and log them against this table.
+
+---
+
+## 1. The 12 rules (v3, muted-first)
 
 | # | Rule | Why |
 |---|---|---|
-| 1 | **Open on the payoff in the first 2 s.** The scariest or most surprising moment comes first; explain afterwards. | The feed is decided in the first seconds. A static title card loses viewers. |
-| 2 | **45–55 s total.** Never over 60 s. | The 98 s version was cut to 51.5 s with nothing lost. |
-| 3 | **Something moves every second.** No scene holds still for more than about 1.5 s. | Dead holds cause drop-off. |
-| 4 | **Animate cause and effect.** Show data *travelling* (a packet, a note flying, a path being drawn), not just a box changing colour. | The viewer has to see *why* B happens after A. |
-| 5 | **Smallest text is 28 px; body text 38 px; headlines 60 px+.** Never wrap a key token (passwords, version numbers): use `white-space:nowrap`. | Phones show the video at about 0.36× scale, so 20 px becomes about 7 px. |
-| 6 | **Nothing overlaps.** Check every still for collisions between bubbles, avatars, labels and pills. | Collisions look broken and hurt credibility. |
-| 7 | **One short engineer layer** (8–12 s), labelled with the real terms (allocator, worker types, the CVE). Keep it at the level of how it works and how it is defended. | Engineers share posts that teach them something; students still follow because the metaphor came first. |
-| 8 | **Every scene carries a badge:** `DOCUMENTED · source` or `OUR BUILD / SIMPLIFIED EXPLAINER`. | This is the series' honesty rule (post-selection-rules §5). |
-| 9 | **End card is 2.5–3 s:** a 4-line summary, the repo, "Next: …". | Long end cards cause drop-off, and URLs in a video can't be clicked anyway. |
-| 10 | **Render frame by frame,** never by screen-recording. Set the Buffer thumbnail to the hook frame (`thumbnailOffset` ≈ 1500–2000 ms). | Smooth motion, sharp text and a thumbnail that sells the post. |
+| 1 | **Frame 0 is the thumbnail and the hook.** One line, ≤ 7 words, **≥ 96 px**, centred in the stage, with the shocking number or fact (e.g. "$6.3 billion. One laptop."). Something moves before 0.5 s. | At feed size (~0.36×) 96 px reads as ~35 px. The 28–44 px hook card in #02 read as ~12 px: invisible. |
+| 2 | **30–40 s total, never over 45 s.** | Average watch was 7.7 s. Shorter means a larger share watched and more completions. |
+| 3 | **The payoff is understood by 12 s.** Beat 1 (0–3 s) shows the result; beat 2 (3–12 s) answers "how?" in one picture. Everything after is a bonus for engineers. | Most viewers leave around 8–10 s. They must leave having learned the one idea. |
+| 4 | **Kinetic captions carry the story.** Every beat has an on-screen line that appears word by word (`words()` helper): ≤ 6 words per line, **64–80 px**, bold, high contrast, placed **in the stage next to the action**, not at the bottom. Max 2 lines on screen. | Muted viewers read; the eye follows motion, so words must sit where things move. |
+| 5 | **A visual change every 2–3 s.** Cut, zoom, counter, colour flip or a new object. No hold longer than 1.5 s. | Pattern interrupts reset attention; dead holds cause drop-off. |
+| 6 | **Numbers count up** (`count()` helper) and money/sizes are shown as **physical comparisons** (stacks, bars, a laptop vs a vault). | A number that moves is watched; a static number is skimmed. |
+| 7 | **Open a loop early, close it late.** By 2 s, ask the question in text ("How did one laptop do this?"); answer it in the last third. Show a 3-step **chapter strip** (e.g. `1 HOW · 2 WHY · 3 FIX`) that fills as the video plays. | Visible progress and an open question give a reason to keep watching. |
+| 8 | **Animate cause and effect.** Data *travels* (packets, arrows, a path being drawn), never just changes colour. | The viewer must see why B follows A. |
+| 9 | **Type scale:** hook ≥ 96 px · kinetic captions 64–80 px · labels ≥ 36 px · nothing below 28 px. Never wrap a key token (`white-space:nowrap`). Keep text out of the **bottom 140 px and left/right 60 px** (LinkedIn's mute/controls overlay and feed crop). | Phones show the video at ~0.36×. |
+| 10 | **Nothing overlaps.** Check every still for collisions. | Collisions look broken and cost credibility. |
+| 11 | **Every scene carries a badge:** `DOCUMENTED · source` or `OUR BUILD / SIMPLIFIED`. The engineer layer (6–10 s) uses real terms. | The series' honesty rule (post-selection-rules §5). |
+| 12 | **End on a comment prompt, then loop.** Last 2–3 s: a one-line takeaway + a **binary question** on screen ("A or B? Comment below"). The final frame visually matches frame 0 so the autoplay loop looks seamless. | Comments are our biggest gap; a choice is easier to answer than an open question. Loops add replays. |
 
-No how-to-attack details, ever: show the bug class and the fix, not payloads, requests or configuration tricks.
+Always: render frame by frame (never screen-record), and no how-to-attack details: show the bug class and the defence, never payloads, requests or configuration tricks.
 
 ---
 
 ## 2. Storyboard first (fill this before writing code)
 
-Write it in `weeks/<week>/02-post.md` under `## Storyboard`. Use these beats and timings:
+Write it in `weeks/<week>/02-post.md` under `## Storyboard`. Beats and timings for a 34 s video:
 
-| Beat | Time | Purpose | Example (PHP2Shell) |
-|---|---|---|---|
-| **0 · Cold open** | 0–4 s | The payoff, frozen in its scariest form. Caption line 1 = hook (≤12 words), line 2 = what this is. | A browser card: "Your note: **my-otp-4821**" stamped in red, "↑ That's Akshat's one-time password." |
-| **1 · Basics** | 4–15 s | The two or three building blocks, from zero, with one everyday metaphor. | Visitors → server → worker → memory; the request lifecycle Start · Work · Clean up. |
-| **2 · The bug** | 15–29 s | The failure, step by step, ending on the payoff we opened with (the viewer now understands it). | The note goes into memory → OUT OF MEMORY → Clean up struck out → the note flies to the next visitor. |
-| **3 · Under the hood** | 29–41 s | Zoom from the metaphor into the real system. Real terms, one causal path. | Memory blocks, half-cleaned blocks, a path from request 2 into them, "Remote code execution · no login". |
-| **4 · The fix** | 41–49 s | The fix as a visible change to the system, then replay the bug and show it failing. Then what the viewer should do. | "Clean up" moves to the front and becomes "Reset"; the crash replays; the next visitor sees "(none)"; patched versions. |
-| **5 · Decoder Card** | 49–52 s | The 4-line summary, the repo, "Next: …". | 1 reuse → 2 crash → 3 leftovers → 4 reset first. |
+| Beat | Time | Purpose | On-screen text (kinetic) | Example (Binance, Week 2) |
+|---|---|---|---|---|
+| **0 · Hook** | 0–3 s | The result, huge. Motion by 0.5 s. | ≤ 7 words, ≥ 96 px | "$6.3 billion" counts up, then "One laptop." stamps in |
+| **1 · Open loop** | 3–5 s | Ask the question the video answers; chapter strip appears | the question | "How did one laptop move it?" |
+| **2 · The one idea** | 5–14 s | The mechanism as one picture with one metaphor. Payoff understood by 12 s. | 2–3 lines, ≤ 6 words each | laptop → trusted service → "sign" stamp → coins fly out of the vault |
+| **3 · Under the hood** | 14–24 s | One level deeper, real terms, one causal path (engineers) | real terms as labels | hot vs cold wallet; the withdrawal service signs what it's told |
+| **4 · The fix / defence** | 24–31 s | The defence as a visible change, then replay and show it failing | the rule in 4–6 words | two approvals + a limit; the fake request bounces; "$3B frozen" counter |
+| **5 · Comment + loop** | 31–34 s | Takeaway + binary question; last frame matches frame 0 | "A or B? Comment below" | "Freeze crypto: A) good safety net B) too much control" |
 
-For every beat, write: the caption (h2 ≤ 9 words, p ≤ 18 words), what moves, and the badge (Documented / Our build).
+For every beat, write: the kinetic line(s), what moves, the badge, and the change that happens every 2–3 s.
+
+**Caption (post text) rules for the video post:**
+- Line 1 = the same hook as frame 0. Line 2 = the open question.
+- Put the binary question from the end card within the first 400 characters.
+- End with "Watch to the end: the fix is at 0:25", using the real timestamp.
 
 ---
 
@@ -51,7 +72,7 @@ Ink      #1D1D1F   Muted #6E6E73   Line #E5E5EA
 Blue     #0071E3 (normal / in use / person A)
 Orange   #FF9500 (person B / the "next request")
 Red      #D93025 (danger, the bug)      Green #1F9D55 (the fix, OK)
-Yellow   #FFE680 (data / a note)
+Yellow   #FFE680 (data / a note; also the kinetic-caption highlight)
 Mono     DejaVu Sans Mono for tokens (passwords, code, versions)
 Radius   20–44 px cards, 999 px pills. Soft shadow 0 20px 60px rgba(0,0,0,.06)
 ```
@@ -60,10 +81,11 @@ Radius   20–44 px cards, 999 px pills. Soft shadow 0 20px 60px rgba(0,0,0,.06)
 
 | Zone | y range | Contents |
 |---|---|---|
-| Top bar | 0–110 | progress bar (8 px, blue, width = t/T), `DECODED #NN`, level chip |
-| Stage | 170–880 | actors on the left (x 40–360), the system card on the right (x 360–1010) |
-| Caption | 930–1200 | h2 62 px + p 38 px, crossfade between beats |
-| Badge | 1240 | Documented (blue tint) / Our build (grey) |
+| Top bar | 0–120 | progress bar (8 px), `DECODED #NN`, chapter strip |
+| Stage | 140–1000 | the action **and** its kinetic caption (caption sits beside or above the moving thing) |
+| Support line | 1020–1160 | optional second line, ≥ 44 px |
+| Badge | 1170–1210 | Documented (blue tint) / Our build (grey), ≥ 28 px |
+| Safe margin | 1210–1350 | **empty**: LinkedIn's video controls overlay this |
 
 ---
 
@@ -74,7 +96,7 @@ The page is a **pure function of time**: `window.render(t)` sets every element's
 Required globals:
 
 ```js
-window.DURATION = 51.5;          // seconds
+window.DURATION = 34;            // seconds
 window.render = function (t) {}; // draws the frame at time t
 ```
 
@@ -90,6 +112,9 @@ Helpers (copy from `motion-template.html`):
 | `tf(el, {x, y, s, r, o})` | set transform and opacity |
 | `shake(t, a, b, amp)` | decaying horizontal shake for crashes |
 | `txt(el, value, html)` | set text only when it changes (fast) |
+| **`words(el, text, t0, t1, hi)`** | **kinetic caption**: reveals `text` word by word between t0 and t1 (each word rises and fades in); words listed in `hi` get the yellow highlight |
+| **`count(el, from, to, t0, t1, fmt)`** | **counter**: eases a number from → to and writes `fmt(n)` (e.g. `n => '$' + n.toFixed(1) + 'B'`) |
+| **`chapters(t, marks)`** | fills the chapter strip: `marks = [[t, 0], [t, 1], [t, 2]]` |
 | Easing: `E` (in-out cubic), `EO` (out cubic), `EB` (back-out, for "stamps") | |
 
 Patterns used in #02 (all in `motion-v2.html`):
@@ -104,7 +129,14 @@ Patterns used in #02 (all in `motion-v2.html`):
 | **Sweep / clean** | a green gradient bar crossing the memory; the data fades as it passes |
 | **Zoom into the real system** | the zoom panel scales 0.42→1 from the memory's centre (`transform-origin`), while the metaphor card fades |
 | **Causal path** | SVG path, `stroke-dasharray = length`, `dashoffset = length·(1-k)`; a dot rides `getPointAtLength` |
-| **Captions** | `CAPS = [[t0, t1, h2, p]]`; opacity `win(t,t0,t1,.3,.25)` + 16 px rise |
+
+New in v3:
+
+| Pattern | How |
+|---|---|
+| **Hook stamp** | hook line at s 1.4 → 1 with `EB` between 0.1 and 0.5 s; a counter runs underneath it from 0.2 s |
+| **Kinetic caption** | `words()` for every line; start each line 0.1 s after the action it describes starts |
+| **Seamless loop** | the last 0.4 s cross-fades to the exact frame-0 layout (same hook text, same position) |
 
 ---
 
@@ -112,24 +144,28 @@ Patterns used in #02 (all in `motion-v2.html`):
 
 ```bash
 cd decoded-content && export NODE_PATH=$(npm root -g)
-# 1) Stills first: check every beat for overlap, wrapping and readability
-node tools/frames.js weeks/<week>/motion.html /tmp/out/x.mp4 --stills 2,6,11,17,20,26,31,35,38,42,46,50
-# 2) Full render (≈1.5 min for 50 s): deterministic, 30 fps, x264 crf 16, -tune animation
+# 1) Stills first: hook frame, every beat, end card
+node tools/frames.js weeks/<week>/motion.html /tmp/out/x.mp4 --stills 0,0.5,2,4,8,12,16,20,24,28,32,33.9
+# 2) Full render: deterministic, 30 fps, x264 crf 16, -tune animation
 node tools/frames.js weeks/<week>/motion.html /tmp/out/decoded-NN.mp4 30
-# 3) Sample real frames from the MP4 and look at them (contact sheet)
-for t in 1.5 10 25 34 46; do ffmpeg -v error -y -ss $t -i /tmp/out/decoded-NN.mp4 -frames:v 1 /tmp/out/m$t.png; done
+# 3) Feed-size check: shrink the hook and a mid frame to phone-feed size and look at them
+for t in 0.5 10 30; do ffmpeg -v error -y -ss $t -i /tmp/out/decoded-NN.mp4 -frames:v 1 -vf scale=390:-1 /tmp/out/feed$t.png; done
 ```
 
 Preview in a normal browser: open the HTML file and it plays itself (the loop runs only when not under automation).
 
 **QA checklist (all must pass before publishing):**
-- [ ] The payoff is visible by 1.5 s; the thumbnail frame (`thumbnailOffset`) shows it
-- [ ] Duration 45–55 s; no hold longer than about 1.5 s without motion
-- [ ] All text ≥ 28 px; no wrapped tokens; no overlaps in any still
+- [ ] **Muted test:** watching with no sound, the 390 px-wide frames at 0.5 s and 10 s are readable and say what happened
+- [ ] Hook line ≥ 96 px, ≤ 7 words, on screen and moving by 0.5 s; `thumbnailOffset` is set to that frame
+- [ ] The payoff is understood by 12 s (someone who stops at 12 s learned the one idea)
+- [ ] Duration 30–40 s; a visual change at least every 3 s; no hold longer than 1.5 s
+- [ ] Every beat has a kinetic caption (≤ 6 words per line, 64–80 px), placed next to the action
+- [ ] Nothing in the bottom 140 px or the side 60 px; all text ≥ 28 px; no wrapped tokens; no overlaps in any still
+- [ ] End card has a binary comment question; the last frame matches frame 0
 - [ ] Every scene has a badge; every Documented claim is in `research.md`
 - [ ] No exploit steps, payloads or request shapes
-- [ ] Any "real output" quoted on screen matches what the demo actually prints (`npm start`)
-- [ ] The caption's first 2 lines = the hook + the trending name; the question is within the first 400 characters
+- [ ] Any "real output" on screen matches what the demo actually prints (`npm start`)
+- [ ] Caption: line 1 = frame-0 hook; binary question within the first 400 characters; "the fix is at 0:NN" line
 
 ---
 
@@ -139,16 +175,20 @@ Preview in a normal browser: open the HTML file and it plays itself (the loop ru
 2. Commit and push `decoded` first. Use the pinned commit in the URL:
    `https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@<commit>/NN-slug/slides/decoded-NN.mp4`
 3. Buffer: `create_post` (or `edit_post` if it's already scheduled) with
-   `assets: [{video:{url, metadata:{title, thumbnailOffset:1800}}}]`. Keep `dueAt`. Check that `durationMs` in the response matches the render.
+   `assets: [{video:{url, metadata:{title, thumbnailOffset:500}}}]` (the hook frame). Keep `dueAt`. Check that `durationMs` in the response matches the render.
 4. Update `meta.json` (`video_seconds`, `asset_base`) and the caption in `02-post.md`; commit `decoded-content`.
 
 ---
 
 ## 7. Pitfalls we already hit
 
+- **#02 opened on a small card** (44 px label, 88 px token inside a card): unreadable in the feed. Hook rate 24.7%. The hook must be the biggest thing on screen.
+- **#02 ran 51.5 s** and held the explanation until after 15 s; viewers left at ~8 s.
+- **#02's captions sat at the bottom** (y 930+), far from the action; muted viewers had to look in two places.
 - Screen-recording a live page (`recordVideo`) gives judder and soft text. Use `frames.js`.
 - `.t` class names collided (an absolute-positioned title landed on top of the grid). Give every component unique class names.
 - Speech bubbles attached to a moving avatar ran under the system card. Position bubbles in stage coordinates, not inside the avatar.
 - Long names ("Subhadeep") overflowed 120 px labels. Use a wider label box with `white-space:nowrap`.
 - Changing names or text means changing the demo too, so quoted "real output" stays true.
 - Buffer's free plan has no first comment: the repo name goes in the caption as plain text.
+- No voiceover for now (decided 31 Oct 2026). Don't add audio tracks; the video must work fully muted.
