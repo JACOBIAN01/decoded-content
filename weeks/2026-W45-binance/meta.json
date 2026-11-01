@@ -1,0 +1,15 @@
+{
+  "week": "2026-W45",
+  "topic": "Binance $6.3B theft (confused deputy, hot vs cold wallets, freezes)",
+  "source": "trending",
+  "trend_score": 24,
+  "status": "scheduled",
+  "produced_by": "Decoded agent (manual run, 1 Nov 23:10 IST, after the Sunday producer hit a usage limit)",
+  "posts": [
+    {"id": "04", "slot": "Mon", "due": "2026-11-02T10:00:00+05:30", "format": "carousel", "slides": 9, "topic_type": "security", "hook_style": "attributed fact + open question", "india_angle": false, "asset": "02-withdrawal-desk/slides/decoded-04.pdf", "buffer_post_id": "6ae77bd9142f545151f23cbd"},
+    {"id": "05", "slot": "Wed", "due": "2026-11-04T10:00:00+05:30", "format": "video (motion graphic v3, frame-rendered)", "video_seconds": 34, "topic_type": "security", "hook_style": "huge number + twist, binary end question", "india_angle": false, "asset": "02-withdrawal-desk/slides/decoded-05.mp4", "buffer_post_id": "6ae77be1142f545151f23f6c"},
+    {"id": "06", "slot": "Thu", "due": "2026-11-05T10:00:00+05:30", "format": "carousel", "slides": 9, "topic_type": "security/crypto", "hook_style": "attributed number + contrast", "india_angle": false, "asset": "02-withdrawal-desk/slides/decoded-06.pdf", "buffer_post_id": "6ae77be67c4e5559266a453a"}
+  ],
+  "blog": "https://www.subhadeepghorai.in/blog/binance-6-3-billion (link posted by Subhadeep as a comment, never in captions)",
+  "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@0cb9a1b/02-withdrawal-desk/slides/"
+}

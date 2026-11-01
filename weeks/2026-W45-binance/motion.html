@@ -1,0 +1,181 @@
+<!doctype html><meta charset="utf-8"><title>Decoded #05 · The withdrawal desk</title>
+<!-- Decoded #05 (Binance week). Motion graphic v3, muted-first. Contract: window.DURATION + window.render(t).
+     Numbers on screen match JACOBIAN01/decoded/02-withdrawal-desk (npm start / npm run fixed). Our build, not Binance's system. -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1D1D1F;--mute:#6E6E73;--blue:#0071E3;--red:#D93025;--green:#1F9D55;--org:#FF9500;--yel:#FFE680;--line:#E5E5EA;--bg:#FBFBFD}
+body{width:1080px;height:1350px;background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);overflow:hidden;position:relative}
+.abs{position:absolute}
+#bar{left:0;top:0;height:8px;background:var(--blue)}
+.top{left:60px;right:60px;top:40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:30px;font-weight:700;letter-spacing:.08em}.brand span{color:var(--mute);font-weight:600}
+#chap{display:flex;gap:10px}
+#chap span{font-size:28px;font-weight:700;letter-spacing:.04em;padding:8px 18px;border-radius:999px;background:#EEF0F3;color:#86868B}
+#chap span.on{background:var(--ink);color:#fff}
+#hook{left:60px;right:60px;top:300px;text-align:center;z-index:30}
+#hook .num{font-family:'Inter Display',Inter;font-size:200px;font-weight:800;letter-spacing:-.03em;color:var(--red);white-space:nowrap;line-height:1}
+#hook .line{font-family:'Inter Display',Inter;font-size:112px;font-weight:800;letter-spacing:-.025em;line-height:1.02;margin-top:24px;white-space:nowrap}
+#hook .by{font-size:48px;font-weight:600;color:var(--mute);margin-top:22px}
+#q{left:60px;right:60px;top:820px;text-align:center;font-size:72px;font-weight:800;color:var(--blue)}
+.kin{font-family:'Inter Display',Inter;font-size:72px;font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.kin .w{display:inline-block;margin-right:.24em;white-space:nowrap}
+.kin .w.hi{background:var(--yel);border-radius:12px;padding:0 10px;margin-left:-10px}
+#k1{left:60px;right:60px;top:150px}
+#sup{left:60px;right:60px;top:1020px;font-size:42px;font-weight:600;color:#424245;line-height:1.25}
+/* stage */
+.chip{left:60px;width:350px;height:110px;border-radius:28px;display:flex;flex-direction:column;justify-content:center;padding:0 26px;color:#fff;font-weight:800;font-size:38px;white-space:nowrap}
+.chip small{font-size:28px;font-weight:600;opacity:.9}
+#app{top:420px;background:var(--blue)}
+#hk{top:580px;background:#5A5A5F}
+#sig{left:640px;top:380px;width:380px;height:370px;background:#fff;border-radius:40px;border:3px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.06)}
+#sig .lab{position:absolute;left:32px;top:24px;font-size:32px;font-weight:800;color:var(--mute);letter-spacing:.04em}
+#key{left:32px;top:84px;padding:14px 26px;background:var(--yel);border-radius:16px;font-family:'DejaVu Sans Mono',monospace;font-size:44px;font-weight:700;white-space:nowrap}
+#keyn{left:32px;top:170px;font-size:30px;font-weight:600;color:var(--mute)}
+#rules{left:24px;right:24px;top:222px;display:flex;flex-direction:column;gap:10px}
+#rules div{background:#E9F7EF;color:var(--green);border-radius:16px;padding:10px 16px;font-size:28px;font-weight:800;white-space:nowrap}
+#stamp{left:30px;width:320px;text-align:center;top:130px;font-family:'Inter Display',Inter;font-size:56px;font-weight:900;letter-spacing:.02em;padding:6px 0;border:6px solid var(--green);color:var(--green);border-radius:20px;background:rgba(255,255,255,.9);white-space:nowrap;z-index:5}
+#hot{left:60px;top:800px;width:620px;height:180px;background:#fff;border-radius:36px;border:3px solid var(--line);padding:22px 30px}
+#hot .lab,#cold .lab{font-size:30px;font-weight:800;color:var(--mute);letter-spacing:.04em;white-space:nowrap}
+#hotn{font-family:'Inter Display',Inter;font-size:68px;font-weight:800;margin-top:2px;white-space:nowrap}
+#hotbar{left:30px;right:30px;bottom:24px;height:18px;border-radius:9px;background:#F2F2F7;overflow:hidden}
+#hotfill{left:0;top:0;bottom:0;background:var(--green);border-radius:9px}
+#cold{left:720px;top:800px;width:300px;height:180px;background:#F2F2F7;border-radius:36px;padding:22px 26px}
+#cold b{display:block;font-family:'Inter Display',Inter;font-size:60px;font-weight:800;color:#424245}
+#cold small{font-size:28px;font-weight:700;color:var(--green)}
+.pk{left:0;top:0;padding:12px 20px;border-radius:16px;background:var(--yel);font-family:'DejaVu Sans Mono',monospace;font-size:36px;font-weight:700;white-space:nowrap;z-index:20;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.coin{left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--org);color:#fff;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center;z-index:15}
+#badge{left:60px;top:1170px;font-size:28px;font-weight:700;letter-spacing:.05em;padding:10px 22px;border-radius:999px;white-space:nowrap}
+#flash{inset:0;background:var(--red);z-index:40;pointer-events:none}
+#end{inset:0;background:var(--bg);z-index:50;padding:190px 60px 0}
+#end h1{font-family:'Inter Display',Inter;font-size:84px;line-height:1.05;letter-spacing:-.02em}
+#end .eq{margin-top:44px;font-size:52px;font-weight:700;line-height:1.2;color:#424245}
+#end .opt{margin-top:28px;display:flex;align-items:center;gap:24px;padding:26px 32px;border-radius:28px;background:#fff;border:2px solid var(--line);font-size:52px;font-weight:700}
+#end .opt b{width:76px;height:76px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+#end .cta{margin-top:40px;font-size:52px;font-weight:800;color:var(--blue)}
+</style>
+<div id="bar" class="abs"></div>
+<div class="top abs"><div class="brand">DECODED <span>#05</span></div><div id="chap"><span>1 HOW</span><span>2 DRAIN</span><span>3 FIX</span></div></div>
+<div id="hook" class="abs"><div class="num">$6.3B</div><div class="line">No key leaked.</div><div class="by">says Binance</div></div>
+<div id="q" class="abs">So who signed it?</div>
+<div id="k1" class="abs kin"></div>
+<div id="app" class="abs chip"><span id="appt">App</span><small id="apps">a normal withdrawal</small></div>
+<div id="hk" class="abs chip"><span id="hkt">Ops machine</span><small id="hks">trusted ✓</small></div>
+<div id="sig" class="abs"><div class="lab">SIGNING SERVICE</div><div id="key" class="abs">🔑 KEY</div><div id="keyn" class="abs">never leaves this box</div>
+  <div id="rules" class="abs"><div id="r0">&gt; $1M → 2nd human</div><div id="r1">max $5M/hour each</div></div>
+  <div id="stamp" class="abs">SIGNED</div></div>
+<div id="hot" class="abs"><div class="lab">HOT WALLET · online</div><div id="hotn">$100M</div><div id="hotbar" class="abs"><div id="hotfill" class="abs"></div></div></div>
+<div id="cold" class="abs"><div class="lab">COLD VAULT</div><b>$900M</b><small>offline · safe</small></div>
+<div id="pool"></div>
+<div id="sup" class="abs"></div>
+<div id="badge" class="abs"></div><div id="flash" class="abs"></div>
+<div id="end" class="abs"><h1>One hacked machine shouldn't be enough.</h1>
+  <div class="eq">Would you wait 1 hour on big withdrawals if it made theft much harder?</div>
+  <div class="opt" id="o0"><b style="background:var(--blue)">A</b>Yes, worth it</div>
+  <div class="opt" id="o1"><b style="background:var(--org)">B</b>No, too slow</div>
+  <div class="cta" id="cta">A or B? Comment below ↓</div></div>
+<script>
+// ---------- engine (from tools/motion-template.html) ----------
+const $=id=>document.getElementById(id);
+const C=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const E=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2, EO=x=>1-Math.pow(1-x,3);
+const EB=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const P=(t,a,b,e=E)=>e(C((t-a)/(b-a))), L=(a,b,k)=>a+(b-a)*k;
+const win=(t,a,b,fi=.3,fo=.3)=>Math.max(0,Math.min(P(t,a,a+fi,EO),1-P(t,b-fo,b)));
+const at=(list,t)=>{let v=list[0][1];for(const [k,x] of list) if(t>=k) v=x;return v;};
+const tf=(el,{x=0,y=0,s=1,r=0,o=1})=>{el.style.transform=`translate(${x}px,${y}px) scale(${s}) rotate(${r}deg)`;el.style.opacity=o;};
+const shake=(t,a,b,amp)=>t>=a&&t<b?Math.sin((t-a)*70)*amp*(1-(t-a)/(b-a)):0;
+const cache={};const txt=(el,v,html)=>{const k=el.id+(html?'h':'t');if(cache[k]===v)return;cache[k]=v;html?el.innerHTML=v:el.textContent=v;};
+const words=(el,text,t0,t1,hi=[])=>{
+  const key=el.id+'w';if(cache[key]!==text){cache[key]=text;el.innerHTML=text.split(' ').map(w=>`<span class="w${hi.includes(w)?' hi':''}">${w}</span>`).join('');}
+  const ws=el.children,n=ws.length,step=(t1-t0)/Math.max(n,1);
+  for(let i=0;i<n;i++){const k=P(t,t0+i*step,t0+i*step+.25,EO);tf(ws[i],{y:(1-k)*28,o:k});}
+};
+const chapters=(t,marks)=>{const cur=at([[0,-1],...marks],t);[...$('chap').children].forEach((s,i)=>s.className=i<=cur?'on':'');};
+let t=0;
+
+// ---------- timeline ----------
+const T=34; window.DURATION=T;
+const KIN=[[5,9,'The key never leaves the signer.',['key']],[9,12,'It signs for trusted machines.',['trusted']],[12,14.4,'Hack one. Get signatures.',['signatures.']],
+ [14.4,19.4,'No rules: $100M gone.',['$100M']],[19.4,22,'The real customer? Blocked.',['Blocked.']],
+ [22,25.4,'Add two boring rules.',['two']],[25.4,28.4,'Drain stalls at $5M.',['$5M.']],[28.4,31,'The customer still gets paid.',['paid.']]];
+const SUP=[[5,9,'A withdrawal is a signed message. Only the signer holds the key.'],[9,14.4,'No key stolen. Security calls this a “confused deputy”.'],
+ [14.4,22,'25 requests of $4M, all signed. The offline cold vault is safe.'],[22,31,'Over $1M needs a 2nd human. Max $5M per hour per machine.']];
+const BADGE=[[0,['doc','DOCUMENTED · BINANCE STATEMENTS, 29–30 OCT']],[5,['our','OUR BUILD · SIMPLIFIED, NOT BINANCE’S SYSTEM']],
+ [14.4,['our','OUR BUILD · REAL OUTPUT OF npm start']],[22,['our','OUR BUILD · REAL OUTPUT OF npm run fixed']]];
+const CH=[[5,0],[14.4,1],[22,2]];
+// requests: [start, arrive, from ('app'|'hk'), label, result text, ok]
+const RQ=[[5.6,6.4,'app','SIGN $0.5M','SIGNED',1],[10.0,10.8,'hk','SIGN $4M','SIGNED',1]];
+for(let i=0;i<12;i++) RQ.push([14.6+i*.34,15.05+i*.34,'hk','SIGN $4M','SIGNED',1]);
+RQ.push([19.6,20.4,'app','SIGN $0.5M','WALLET EMPTY',0]);
+[23.2,23.8,24.4].forEach(s=>RQ.push([s,s+.55,'hk','SIGN $4M','2ND HUMAN?',0]));
+[25.5,25.9,26.3,26.7,27.1].forEach(s=>RQ.push([s,s+.4,'hk','SIGN $1M','SIGNED',1]));
+[27.6,28.0].forEach(s=>RQ.push([s,s+.4,'hk','SIGN $1M','SPEED LIMIT',0]));
+RQ.push([28.6,29.4,'app','SIGN $0.5M','SIGNED',1]);
+const pool=$('pool'),PK=[],CO=[];
+RQ.forEach((r,i)=>{const p=document.createElement('div');p.className='abs pk';p.id='pk'+i;pool.appendChild(p);PK.push(p);
+ const c=document.createElement('div');c.className='abs coin';c.textContent='$';pool.appendChild(c);CO.push(c);});
+const HOT=[[0,100],[14.9,100],[19.0,0],[22.0,0],[22.6,100],[25.9,100],[27.7,95],[29.4,95],[29.8,94.5],[34,94.5]];
+const hotAt=t=>{for(let i=1;i<HOT.length;i++){const [a,va]=HOT[i-1],[b,vb]=HOT[i];if(t<=b)return L(va,vb,P(t,a,b,EO));}return HOT[HOT.length-1][1];};
+
+window.render=function(tt){
+ t=tt;
+ $('bar').style.width=(1080*t/T)+'px'; chapters(t,CH);
+ const b=at(BADGE,t),be=$('badge');txt(be,b[1]);be.style.background=b[0]=='doc'?'#E8F1FD':'#F2F2F7';be.style.color=b[0]=='doc'?'#0B5CC4':'#424245';
+ // 0 · hook (frame 0 fully readable; the thumbnail and the loop seam)
+ const hout=P(t,4.4,4.9);
+ tf($('hook'),{o:1-hout,y:-hout*40});
+ tf($('hook').children[0],{s:1+.06*Math.sin(Math.PI*C(t/.6))+.03*Math.sin(Math.PI*C((t-1.8)/.5))});
+ tf($('hook').children[1],{x:shake(t,.3,.9,12)});
+ tf($('q'),{o:win(t,2.6,4.9,.3,.4),y:(1-P(t,2.6,3,EO))*20});
+ // kinetic + support
+ const ks=KIN.find(k=>t>=k[0]&&t<k[1]),k1=$('k1');
+ if(ks){words(k1,ks[2],ks[0]+.1,ks[0]+.9,ks[3]);k1.style.opacity=1-P(t,ks[1]-.25,ks[1]);}else k1.style.opacity=0;
+ const ss=SUP.find(s=>t>=s[0]&&t<s[1]),sp=$('sup');
+ if(ss){txt(sp,ss[2]);tf(sp,{o:win(t,ss[0]+.4,ss[1],.3,.25)});}else tf(sp,{o:0});
+ // stage
+ const st=win(t,4.6,31.2,.5,.4), sy=(1-P(t,4.6,5.3,EO))*30;
+ tf($('sig'),{o:st,y:sy,x:shake(t,10.8,11.3,8)});
+ tf($('key'),{o:st,s:1+.08*Math.sin(Math.PI*C((t-5.2)/.6))});
+ tf($('app'),{o:st,y:sy});
+ txt($('appt'),t<19.2?'App':'Customer');txt($('apps'),t<19.2?'a normal withdrawal':'her own $0.5M');
+ // the trusted machine appears at 8.2, gets hacked at 9.2
+ const hkIn=P(t,8.2,8.7,EO), hacked=t>=9.2;
+ tf($('hk'),{o:Math.min(st,hkIn),x:(1-hkIn)*-40+shake(t,9.2,9.8,14)});
+ $('hk').style.background=hacked?'var(--red)':'#5A5A5F';
+ txt($('hkt'),hacked?'Hacked machine':'Ops machine');txt($('hks'),hacked?'still trusted ✓':'trusted ✓');
+ $('flash').style.opacity=.18*win(t,9.2,9.5,.05,.25);
+ // rules appear in the signer at 22.3
+ [0,1].forEach(i=>{const k=P(t,22.4+i*.35,22.9+i*.35,EB);tf($('r'+i),{s:L(.6,1,k),o:C(k)*win(t,0,31.2,.01,.4)});});
+ tf($('keyn'),{o:st*(1-P(t,22.2,22.5))});
+ // wallets
+ tf($('hot'),{o:win(t,5.0,31.2,.4,.4),y:(1-P(t,5,5.6,EO))*30});
+ tf($('cold'),{o:win(t,5.2,31.2,.4,.4),y:(1-P(t,5.2,5.8,EO))*30,s:1+.05*win(t,16.5,17.6,.3,.4)});
+ const hv=hotAt(t);txt($('hotn'),'$'+(Math.round(hv*10)/10)+'M');
+ $('hotfill').style.width=hv+'%';$('hotfill').style.background=hv<30?'var(--red)':'var(--green)';
+ $('hotn').style.color=hv<30?'var(--red)':'var(--ink)';
+ // requests travel from the sender chip into the signer; the signer stamps SIGNED or BLOCKED
+ let stamp=null;
+ RQ.forEach(([s,a,from,label,res,ok],i)=>{
+  const el=PK[i],co=CO[i];
+  if(t<s||t>a+.7||t>31.2){el.style.opacity=0;co.style.opacity=0;return;}
+  const y0=from=='app'?475:635, k=P(t,s,a);
+  let x=L(420,600,k), y=y0-Math.sin(Math.PI*k)*40, o=1;
+  txt(el,label.replace('SIGN ',''));
+  if(t<a){el.style.background='var(--yel)';el.style.color='var(--ink)';o=1-P(t,a-.12,a);}
+  else if(ok){o=0;}
+  else{const d=P(t,a,a+.6,EO);el.style.background='var(--red)';el.style.color='#fff';txt(el,'✕ '+label.replace('SIGN ',''));x=L(600,450,d);o=1-P(t,a+.4,a+.6);}
+  el.style.transform=`translate(${x}px,${y}px) translateY(-50%)`;el.style.opacity=o;
+  if(t>=a&&(t-a)<.45&&(stamp===null||a>stamp.a))stamp={d:t-a,ok,a};
+  if(ok&&t>=a&&t<a+.6){const c=P(t,a,a+.6,EO);co.style.left=L(360,1100,c)+'px';co.style.top=(L(870,700,c)-Math.sin(Math.PI*c)*60)+'px';co.style.opacity=1-P(t,a+.45,a+.6);}else co.style.opacity=0;
+ });
+ const sm=$('stamp');
+ if(stamp){txt(sm,stamp.ok?'SIGNED':'BLOCKED');sm.style.color=sm.style.borderColor=stamp.ok?'var(--green)':'var(--red)';
+  tf(sm,{s:L(1.4,1,EB(C(stamp.d/.2))),r:-8,o:1-C((stamp.d-.3)/.15)});}else sm.style.opacity=0;
+ // 5 · end card + seamless loop back to frame 0
+ const eo=P(t,31,31.4)*(1-P(t,33.6,34));tf($('end'),{o:eo});
+ [0,1].forEach(i=>{const k=P(t,31.4+i*.25,31.8+i*.25,EO);tf($('o'+i),{y:(1-k)*24,o:k});});tf($('cta'),{o:P(t,32.1,32.4)});
+ if(t>33.6){tf($('hook'),{o:P(t,33.6,34)});}
+};
+window.render(0);
+if(!navigator.webdriver){const t0=performance.now();(function loop(){window.render(((performance.now()-t0)/1000)%T);requestAnimationFrame(loop)})();}
+</script>
