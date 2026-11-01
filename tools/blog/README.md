@@ -82,7 +82,7 @@ readers and search engines get this). Say "Our build" in the caption for teachin
 Tones: `blue orange red green purple grey`. Icons: `key lock unlock laptop server database
 globe user users mail search shield alert cloud file phone`.
 
-**`flow`**: a path through a system, a packet travelling box to box; runs cycle in turn.
+**`flow`**: a path through a system as numbered boxes; `runs` are listed underneath as a colour legend.
 ```json
 { "t": "figure", "kind": "flow", "label": "How a crawler finds a message",
   "steps": [
@@ -105,7 +105,7 @@ globe user users mail search shield alert cloud file phone`.
 ```
 2–3 lanes; optional `tone` per lane.
 
-**`split`**: where things live; two panes, optional share bars and a moving token.
+**`split`**: where things live; two panes with optional share bars, and `mover` shown on the arrow between them.
 ```json
 { "t": "figure", "kind": "split", "label": "Where your data lives",
   "panes": [
