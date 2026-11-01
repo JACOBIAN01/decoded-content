@@ -31,7 +31,7 @@ const isArr = (v, min = 1, max = Infinity) => Array.isArray(v) && v.length >= mi
 
 function checkLinks(text, where, err) {
   for (const m of String(text).matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
-    if (!/^(https:\/\/|\/)/.test(m[1])) err(`${where}: link "${m[1]}" must start with https:// or /`);
+    if (!/^(https?:\/\/|\/(?!\/)|#)/.test(m[1])) err(`${where}: link "${m[1]}" must start with https://, / or # (anything else shows as plain text)`);
   }
 }
 
@@ -137,7 +137,7 @@ function checkBlock(b, where, err) {
       if (!isStr(it.when) || !isStr(it.what)) err(`${where}.items[${i}]: needs "when" and "what"`);
     });
   }
-  if (b.t === "code" && !isStr(b.code)) err(`${where}: code block needs "code"`);
+  if (b.t === "code" && !isStr(b.c) && !isStr(b.code)) err(`${where}: code block needs its code in "c"`);
   if (b.t === "sources") {
     if (!isArr(b.items)) err(`${where}: sources needs items`);
     else b.items.forEach((it, i) => {
@@ -157,7 +157,13 @@ function validatePosts(posts) {
     if (slugs.has(p.slug)) err(`duplicate slug`);
     slugs.add(p.slug);
     for (const k of ["title", "dek", "description"]) if (!isStr(p[k])) err(`meta.${k} is required`);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(p.date || "")) err(`meta.date must be YYYY-MM-DD`);
+    // Same rule as the portfolio's src/data/blogMeta.js: a real date, not in the future (UTC).
+    const date = p.date || "";
+    const time = Date.parse(`${date}T00:00:00Z`);
+    const real = /^\d{4}-\d{2}-\d{2}$/.test(date) && !Number.isNaN(time) && new Date(time).toISOString().slice(0, 10) === date;
+    if (!real) err(`meta.date must be a real date written YYYY-MM-DD`);
+    else if (date > new Date().toISOString().slice(0, 10))
+      err(`meta.date ${date} is in the future: the site hides it until a build on or after that date. Use the day the PR is opened.`);
     if (!isArr(p.blocks)) err(`blocks must be a non-empty list`);
     else p.blocks.forEach((b, i) => checkBlock(b, `blocks[${i}]`, err));
     if (!p.blocks?.some((b) => b.t === "sources")) err(`every post needs a "sources" block`);

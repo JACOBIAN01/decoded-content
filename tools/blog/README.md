@@ -41,7 +41,7 @@ The **file name is the slug**: `discord-on-google.json` becomes `/blog/discord-o
   "title": "Your Discord messages are about to be googleable",
   "dek": "One or two sentences under the title: the hook plus the open question.",
   "description": "~150 characters for Google and the LinkedIn link preview.",
-  "date": "2026-11-09",
+  "date": "2026-11-08",
   "tags": ["Privacy", "Search"],
   "series": "Decoded",
   "seriesNo": "07",
@@ -49,7 +49,13 @@ The **file name is the slug**: `discord-on-google.json` becomes `/blog/discord-o
 }
 ```
 
+**`date` = the day you open the PR (UTC), never a future day.** The site hides posts dated in
+the future until a build on or after that date, and Vercel only builds on a push, so a
+post dated for Monday's LinkedIn slot would stay hidden after Sunday's merge. The checker
+rejects future dates.
+
 Inline formatting in any text: `**bold**`, `` `code` ``, `[text](https://…)`. Nothing else.
+Links must start with `https://`, `/` or `#`; anything else shows as plain text.
 
 ## Text blocks
 
@@ -62,7 +68,7 @@ Inline formatting in any text: `**bold**`, `` `code` ``, `[text](https://…)`. 
 | quote | `{ "t": "quote", "c": "…" }` | Pull quote. |
 | callout | `{ "t": "callout", "kind": "documented", "c": "…", "src": "…" }` | `documented` (needs `src`), `ourbuild`, `note`. |
 | timeline | `{ "t": "timeline", "items": [{ "when": "29 Oct", "what": "…" }] }` | What happened. |
-| code | `{ "t": "code", "code": "…" }` | 8–15 lines. |
+| code | `{ "t": "code", "c": "…" }` | 8–15 lines. |
 | keytakeaway | `{ "t": "keytakeaway", "title": "Decoder card", "items": ["…"] }` | Summary near the end. |
 | sources | `{ "t": "sources", "items": [{ "label": "…", "href": "https://…" }] }` | **Required**, last. |
 | divider | `{ "t": "divider" }` | Section break. |
