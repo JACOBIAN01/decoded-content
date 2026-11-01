@@ -10,7 +10,7 @@ Never change portfolio code for a post.
 # 1. Clone or pull the portfolio, branch off main
 git -C ../subhadeep-portfolio fetch origin main && git -C ../subhadeep-portfolio checkout -b blog/<slug> origin/main
 
-# 2. Write  ../subhadeep-portfolio/client/src/content/blog/<slug>.json   (format below)
+# 2. Write  ../subhadeep-portfolio/client/src/content/blog/<slug>.json   (file name = slug; format below)
 
 # 3. Validate: fails with the exact block and field if anything is wrong
 node tools/blog/validate.mjs ../subhadeep-portfolio/client/src/content/blog
@@ -34,9 +34,10 @@ Reference post: `client/src/content/blog/binance-6-3-billion.json` in the portfo
 
 ## The file
 
+The **file name is the slug**: `discord-on-google.json` becomes `/blog/discord-on-google`. Use kebab-case.
+
 ```json
 {
-  "slug": "discord-on-google",
   "title": "Your Discord messages are about to be googleable",
   "dek": "One or two sentences under the title: the hook plus the open question.",
   "description": "~150 characters for Google and the LinkedIn link preview.",

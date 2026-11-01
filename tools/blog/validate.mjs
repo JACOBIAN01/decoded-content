@@ -153,7 +153,7 @@ function validatePosts(posts) {
   const slugs = new Set();
   for (const p of posts) {
     const err = (msg) => problems.push(`[${p.slug || "?"}] ${msg}`);
-    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(p.slug || "")) err(`meta.slug must be kebab-case`);
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(p.slug || "")) err(`file name must be kebab-case (it is the slug)`);
     if (slugs.has(p.slug)) err(`duplicate slug`);
     slugs.add(p.slug);
     for (const k of ["title", "dek", "description"]) if (!isStr(p[k])) err(`meta.${k} is required`);
@@ -173,7 +173,8 @@ if (!dir) {
 const posts = [];
 for (const f of readdirSync(dir).filter((f) => f.endsWith(".json"))) {
   try {
-    posts.push(JSON.parse(readFileSync(join(dir, f), "utf8")));
+    // The file name is the slug: binance-6-3-billion.json -> /blog/binance-6-3-billion
+    posts.push({ ...JSON.parse(readFileSync(join(dir, f), "utf8")), slug: f.slice(0, -5) });
   } catch (e) {
     console.error(`✗ ${f}: not valid JSON (${e.message})`);
     process.exit(1);

@@ -17,7 +17,7 @@ if (!CLIENT) {
 const POSTS_DIR = join(CLIENT, "src/content/blog");
 const POSTS = readdirSync(POSTS_DIR)
   .filter((f) => f.endsWith(".json"))
-  .map((f) => JSON.parse(readFileSync(join(POSTS_DIR, f), "utf8")));
+  .map((f) => ({ ...JSON.parse(readFileSync(join(POSTS_DIR, f), "utf8")), slug: f.slice(0, -5) }));
 // The portfolio's own Inter, so cards render identically offline.
 const INTER = pathToFileURL(
   join(CLIENT, "node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2")
