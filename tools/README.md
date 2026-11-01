@@ -27,7 +27,8 @@ Copy PDFs, MP4 and slide-1 PNGs (`decoded-NN-cover.png`) to `JACOBIAN01/decoded/
 ## 5. Schedule in Buffer (org 6a362e3c1b724c3630804b98, channel 6ad39ac9778b240e2f3afb31)
 - Tue/Thu: `document` asset (url, title, thumbnailUrl); Wed: `video` asset.
 - `mode: customScheduled`, `dueAt: YYYY-MM-DDT10:00:00+05:30`, `schedulingType: automatic`.
-- **No first comment** (needs a paid plan). Put sources and "GitHub → JACOBIAN01/decoded" as plain text in the caption.
+- **No first comment** (needs a paid plan). Put sources as plain text in the caption.
+- **Blog link: never in the caption** (rule set by Subhadeep, 1 Nov 2026). He posts it himself as a comment. The caption ends with a pointer such as "Full deep dive, with a demo you can try: link in the comments." For every post, write the ready-to-paste comment under `## Comment (Subhadeep posts this)` in `NN-post.md`, e.g. "Full explainer with animated diagrams and a demo you can try: https://www.subhadeepghorai.in/blog/<slug>". Use the link to the blog section the post covers when it helps (`#<heading-anchor>`).
 - Caption must contain "Decoded #NN" (the metrics tracker detects posts by it).
 - Free plan holds 10 scheduled posts.
 
