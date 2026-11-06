@@ -38,7 +38,7 @@ Follow `tools/blog/README.md`: one JSON file `client/src/content/blog/<slug>.jso
 Update `meta.json` (status "scheduled", buffer_post_id, asset_base), commit and push decoded-content, and add a row to the log in the project's `content-plan.md`. If an archive post was used, mark it used in `archive.md`.
 
 ## Paused: motion-graphic video
-Videos are paused (Subhadeep, 6 Nov 2026: viewers found them confusing). `tools/MOTION-GRAPHICS.md`, `motion.js`, `frames.js`, `video.js` and `motion-template.html` stay for a possible return. Do not make videos until Subhadeep asks.
+Videos are paused (Subhadeep, 6 Nov 2026: viewers found them confusing). `tools/MOTION-GRAPHICS.md`, `frames.js` and `motion-template.html` stay for a possible return (the older `video.js` and `motion.js` were deleted on 6 Nov). Do not make videos until Subhadeep asks.
 
 ## Carousel cover and document-title rules (learned from Decoded #01 on LinkedIn mobile)
 - LinkedIn shows a document post as a swipeable strip (page 1 next to a sliver of page 2) and overlays a grey chip with the document title and page count on the top ~12% of page 1. So: **keep the top 200 px of the cover empty** (the renderer hides the header bar on slide 1 for this), and set the Buffer document `title` to **20 characters or fewer** (e.g. "How AI hunts bugs").

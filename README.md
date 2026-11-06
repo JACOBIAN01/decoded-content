@@ -8,7 +8,7 @@ Production workspace for the *Decoded* LinkedIn series. Readers never see this r
 |---|---|
 | Rules for choosing every post (hook + trend first) | claude.ai Project "LinkedIn Agent" → `decoded/post-selection-rules.md` |
 | Current plan + log of weeks run | Project → `decoded/content-plan.md` |
-| Reserve weeks for quiet news weeks | Project → `decoded/archive.md`; drafts in `archive/` here |
+| Reserve weeks for quiet news weeks | Project → `decoded/archive.md` (no local copy) |
 | Trend scans and weekly picks | Project → `decoded/trend-log.md` (written daily by a scheduled task) |
 | Metrics snapshots and retros | Project → `decoded/metrics-log.md` (written daily by a scheduled task) |
 | Each week's posts, slide scripts, exports | This repo → `weeks/<ISO-week>-<topic>/` |
@@ -34,6 +34,6 @@ posts/2026-11-09-<slug>/
 |---|---|---|---|
 | 2026-W44 | 25, 28, 29 Oct | PHP2Shell | Trending |
 | 2026-W45 | 2, 4, 5 Nov | Binance $6.3B theft | Trending |
-| From 9 Nov | **Mon, Wed, Fri**, PDF carousels only | One topic per post (max 2 on the same topic) | Trending, or a stand-alone post from `archive/` on quiet days |
+| From 9 Nov | **Mon, Wed, Fri**, PDF carousels only | One topic per post (max 2 on the same topic) | Trending, or a stand-alone post from the Project's `archive.md` on quiet days |
 
 The producer runs Sun/Tue/Thu at 21:08 IST and builds the next post. No videos, no demos, no GitHub links in captions.
