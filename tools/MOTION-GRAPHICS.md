@@ -2,7 +2,7 @@
 
 The Wednesday post of every Decoded week is a **silent, muted-first motion-graphic explainer**: 30–40 s that teaches one mechanism from zero, then goes one level deeper for engineers. It is **never** a screen recording of terminal logs, and it never relies on sound: most people watch the feed muted, and we have no voiceover.
 
-Reference build: `weeks/2026-W44-php2shell/motion-v2.html` (Decoded #02, PHP2Shell). It predates the v3 rules below; follow the rules, not its timings.
+Reference build: `weeks/2026-W45-binance/motion.html` (Decoded #05, Binance), built to the v3 rules below. (Video is paused since 6 Nov 2026; this guide stays on file in case it returns.)
 Starter file: `tools/motion-template.html`. Renderer: `tools/frames.js`.
 
 ---
@@ -117,7 +117,7 @@ Helpers (copy from `motion-template.html`):
 | **`chapters(t, marks)`** | fills the chapter strip: `marks = [[t, 0], [t, 1], [t, 2]]` |
 | Easing: `E` (in-out cubic), `EO` (out cubic), `EB` (back-out, for "stamps") | |
 
-Patterns used in #02 (all in `motion-v2.html`):
+Patterns used in #02 and #05 (see `weeks/2026-W45-binance/motion.html`):
 
 | Pattern | How |
 |---|---|
