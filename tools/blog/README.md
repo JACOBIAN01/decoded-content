@@ -115,8 +115,8 @@ globe user users mail search shield alert cloud file phone`.
 ```
 Exactly 2 panes.
 
-**`gate`** (interactive): the reader switches rules on, presses the button, and sees which
-requests get through. Usually the post's "try it" moment.
+**`gate`** (interactive) — **paused since 6 Nov 2026: Subhadeep removed demos from the series, so do not use this figure in new posts.** Existing posts keep theirs. It lets the reader switch rules on, press the button, and see which
+requests get through.
 ```json
 { "t": "figure", "kind": "gate", "label": "Who can find this message? · our build",
   "action": "Search for it",

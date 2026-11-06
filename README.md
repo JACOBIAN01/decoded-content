@@ -1,6 +1,6 @@
 # Decoded: content workspace (private)
 
-Production workspace for the *Decoded* LinkedIn series. Readers never see this repo; the public demo code lives in [JACOBIAN01/decoded](https://github.com/JACOBIAN01/decoded).
+Production workspace for the *Decoded* LinkedIn series. Readers never see this repo. Since 6 Nov 2026 the series has no demos: the public repo [JACOBIAN01/decoded](https://github.com/JACOBIAN01/decoded) only hosts PDFs for Buffer (older demo folders stay there) and is never linked from a caption.
 
 ## Where things live
 
@@ -15,22 +15,25 @@ Production workspace for the *Decoded* LinkedIn series. Readers never see this r
 
 The project docs are the source of truth for plans and logs; this repo holds the produced content.
 
-## Week folder layout
+## Layout
+
+Weeks 1 and 2 (3 posts each, with demo video) stay in `weeks/` as history. From Week 3 each post gets its own folder:
 
 ```
-weeks/2026-W44-php2shell/
+posts/2026-11-09-<slug>/
   research.md      # sources; every claim tagged Documented or Our build
-  01-post.md       # Tue: post text, 5 hooks (best marked), first comment
-  02-post.md       # Wed: demo video script + post text
-  03-post.md       # Thu: post text + repo link for first comment
-  slides/          # HTML source and exported PDFs, MP4
-  meta.json        # dates, Buffer post ids, status, content features for metrics
+  post.md          # 5 hooks (best marked), caption, comment for Subhadeep, checklist
+  deck.js          # 9-slide carousel (slide 7 = worked example, no code)
+  slides/          # exported PDF and PNGs
+  meta.json        # due date, Buffer post id, status, topic type, hook style
 ```
 
 ## Schedule
 
-| Week | Posts (~10 AM IST) | Topic | Source |
+| When | Posts (10:00 IST) | Topic | Source |
 |---|---|---|---|
-| 2026-W44 | 27, 28, 29 Oct | PHP2Shell: the 14-year-old flaw AI helped find | Trending |
+| 2026-W44 | 25, 28, 29 Oct | PHP2Shell | Trending |
+| 2026-W45 | 2, 4, 5 Nov | Binance $6.3B theft | Trending |
+| From 9 Nov | **Mon, Wed, Fri**, PDF carousels only | One topic per post (max 2 on the same topic) | Trending, or a stand-alone post from `archive/` on quiet days |
 
-From Week 2, each Sunday picks the biggest verified trending story (18+/26). In quiet weeks, a ready-made week from `archive/` is used instead (A1 LinkedIn feed, A2 browser agents, A3 sandbox).
+The producer runs Sun/Tue/Thu at 21:08 IST and builds the next post. No videos, no demos, no GitHub links in captions.
