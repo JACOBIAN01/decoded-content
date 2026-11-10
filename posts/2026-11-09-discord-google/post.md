@@ -1,4 +1,4 @@
-# Decoded #07 · Mon 9 Nov 2026, 10:00 IST · Discord on Google (score 22/26)
+# Decoded #07 · Wed 11 Nov 2026, 10:00 IST (moved from Mon 9 Nov) · Discord on Google (score 22/26)
 
 ## 5 hooks (★ best)
 1. ★ Discord says messages in big public servers can appear on Google from mid-December. How does search find a chat message?

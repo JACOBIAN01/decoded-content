@@ -1,1 +1,17 @@
-{"number":"07","slot":"Mon","due":"2026-11-09T10:00:00+05:30","format":"carousel","slides":9,"topic":"Discord public servers messages in web search","topic_type":"consumer privacy","hook_style":"attributed fact + open question","score":22,"blog":"no","status":"built-not-scheduled","note":"Producer clock/Buffer showed Mon 9 Nov 16:11 IST when scheduling was attempted, after the 10:00 slot; not scheduled. PDF ready; reuse for Wed 11 Nov or Fri 13 Nov (caption dates stay valid until the 16 Nov peg).","buffer_post_id":null,"doc_title":"Discord on Google","asset_base":"https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@9e8583b/slides/2026-11-09-discord-google/"}
+{
+ "number": "07",
+ "slot": "Wed",
+ "due": "2026-11-11T10:00:00+05:30",
+ "format": "carousel",
+ "slides": 9,
+ "topic": "Discord public servers messages in web search",
+ "topic_type": "consumer privacy",
+ "hook_style": "attributed fact + open question",
+ "score": 22,
+ "blog": "no",
+ "status": "scheduled",
+ "note": "Built Sun 8 Nov for Mon 9 Nov; Mon slot passed unscheduled. Scheduled Tue 10 Nov 21:15 IST for Wed 11 Nov 10:00 IST. Discord blog could not be opened in this run (permission block); facts rest on the 28 Oct/8 Nov primary reads in trend-log plus independent outlets.",
+ "buffer_post_id": "6af33c002d2fdb3b7de5c41d",
+ "doc_title": "Discord on Google",
+ "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@9e8583b/slides/2026-11-09-discord-google/"
+}
