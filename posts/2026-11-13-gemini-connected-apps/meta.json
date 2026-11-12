@@ -1,0 +1,17 @@
+{
+ "number": "08",
+ "slot": "Fri",
+ "due": "2026-11-13T10:00:00+05:30",
+ "format": "carousel",
+ "slides": 9,
+ "topic": "Gemini Connected Apps: Gmail and Drive data and human review",
+ "topic_type": "consumer privacy",
+ "hook_style": "attributed fact + open question",
+ "score": 24,
+ "blog": "no",
+ "status": "scheduled",
+ "note": "Built Thu 12 Nov 21:08 IST. Google help pages would not open in this run (permission block); wording limited to verbatim quotes logged by the 12 Nov scan. No blog: primary not re-verified this run.",
+ "buffer_post_id": "6af5df3d64527dadb8a28d75",
+ "doc_title": "Gemini and Gmail",
+ "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@61e076c/slides/2026-11-13-gemini-connected-apps/"
+}
