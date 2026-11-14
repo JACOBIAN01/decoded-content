@@ -19,9 +19,9 @@ NODE_PATH=$(npm root -g) node tools/render.js <outDir> posts/<dir>/deck.js
 Look at the PNGs before publishing (text overflow, wrapping). Fix and re-render.
 
 ## 3. Publish the assets (file hosting only)
-Copy the PDF and the slide-1 PNG (`decoded-NN-cover.png`) to `JACOBIAN01/decoded/slides/<YYYY-MM-DD>-<slug>/`, commit, push. Use the commit hash in links:
-`https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded@<commit>/slides/<YYYY-MM-DD>-<slug>/<file>` (correct MIME types; raw.githubusercontent serves octet-stream).
-This repo is only a file host for Buffer. **No demo code, no README demo section, and never mention or link the repo in a caption.**
+Since 14 Nov 2026 this repo (`JACOBIAN01/decoded-content`, now public) hosts the files itself; the old public `JACOBIAN01/decoded` repo was deleted. Commit the PDF (`decoded-NN.pdf`) and the slide-1 PNG (`decoded-NN-cover.png`) into the post's own folder `posts/<YYYY-MM-DD>-<slug>/`, push, and use that commit hash in the links:
+`https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded-content@<commit>/posts/<YYYY-MM-DD>-<slug>/<file>` (correct MIME types; raw.githubusercontent serves octet-stream).
+Hosting only: **never mention or link the repo in a caption, slide or comment.**
 
 ## 4. Schedule in Buffer (org 6a362e3c1b724c3630804b98, channel 6ad39ac9778b240e2f3afb31)
 - `document` asset (url, title, thumbnailUrl). Never a video.

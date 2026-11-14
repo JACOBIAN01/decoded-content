@@ -11,4 +11,4 @@
 - Quiet days (no verified trending story scoring 18+/26) use a ready-made post from `decoded/archive.md` (the Tue/Thu carousels of an archive week work as stand-alone posts; ignore its Wednesday demo); mark it used.
 - **No blog** (Subhadeep, 14 Nov 2026): nothing goes to subhadeepghorai.in or the portfolio repo. The comment in each `post.md` is a plain discussion prompt with no link, and no caption says "link in the comments".
 - Carousel covers: keep the top 200 px empty (LinkedIn overlays a title chip), document title ≤ 20 characters, cover text ≥ 38 px, attribute claims. See tools/README.md.
-- Assets (PDF, cover PNG) are hosted on jsDelivr from the public repo JACOBIAN01/decoded only because Buffer needs a public URL. That repo is a file host, not a demo: never link to it from a caption.
+- Assets (PDF, cover PNG) are committed into the post's folder in this repo (public since 14 Nov 2026) and served by jsDelivr pinned to the commit, only because Buffer needs a public URL. The old `JACOBIAN01/decoded` repo is deleted. Never link to this repo from a caption, slide or comment.
