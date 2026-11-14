@@ -1,6 +1,6 @@
 # Production runbook (used by the producer task)
 
-Format since 6 Nov 2026: **one PDF carousel per run, posted Mon / Wed / Fri at 10:00 IST. No video, no demo, no GitHub links in captions.** All rendering is headless and needs only Node 18+ and Playwright (Chromium).
+Format since 6 Nov 2026: **one PDF carousel per run, posted Mon / Wed / Fri at 10:00 IST. No video, no demo, no GitHub links in captions.** Since 14 Nov 2026: **no blog**, nothing goes to the portfolio site or repo. All rendering is headless and needs only Node 18+ and Playwright (Chromium).
 
 The producer runs Sun, Tue and Thu at 21:08 IST. Each run builds the **next** post: Sunday builds Monday's, Tuesday builds Wednesday's, Thursday builds Friday's. Two or more posts on one topic are allowed only if the second stands alone (see CLAUDE.md).
 
@@ -9,7 +9,7 @@ The producer runs Sun, Tue and Thu at 21:08 IST. Each run builds the **next** po
 - `post.md`: 5 hooks (★ best), `## Caption`, `## Comment (Subhadeep posts this)`, checklist (post-selection-rules §7).
 - `deck.js`: one deck with key `decoded-NN`, 9 slides. Slide types: `hook` (pill, kicker, title, sub), `big` (label, big, body), `timeline` (label, items[[date,text]]), `worker` (label, big, body), `flow` (label, steps[[title,sub,color]], note), `list` (label, items), `card` (big, question, next). Optional `badge` ("Documented" | "Our build") + `src`. Max ~25 words per slide. See `weeks/2026-W45-binance/deck.js`.
 - **Slide 7 = worked example** (no `code` slide): one concrete walk-through with real numbers or a before/after, built from `flow`, `timeline`, `big` or `list`.
-- `meta.json`: number, slot, due, topic, topic_type, hook_style, score, blog (yes/no and URL), status, buffer_post_id, asset_base.
+- `meta.json`: number, slot, due, topic, topic_type, hook_style, score, status, buffer_post_id, asset_base.
 - Old weeks stay in `weeks/` (history). Do not move them.
 
 ## 2. Render
@@ -27,14 +27,11 @@ This repo is only a file host for Buffer. **No demo code, no README demo section
 - `document` asset (url, title, thumbnailUrl). Never a video.
 - `mode: customScheduled`, `dueAt: YYYY-MM-DDT10:00:00+05:30`, `schedulingType: automatic`.
 - **No first comment** (needs a paid plan). Put sources as plain text in the caption.
-- **Blog link: never in the caption.** If the post has a blog, the caption ends with "Full deep dive: link in the comments." and `post.md` carries the ready-to-paste comment, e.g. "Full explainer with diagrams: https://www.subhadeepghorai.in/blog/<slug>". If it has no blog, omit that line and write a plain discussion-prompt comment.
+- **No links in caption or comment.** No blog exists; the comment in `post.md` is a plain discussion prompt and the caption has no "link in the comments" line.
 - Caption must contain "Decoded #NN" (the metrics tracker detects posts by it).
 - Free plan holds 10 scheduled posts.
 
-## 5. Blog post (only when the post has depth; about one a week)
-Follow `tools/blog/README.md`: one JSON file `client/src/content/blog/<slug>.json` plus its preview image in `JACOBIAN01/subhadeep-portfolio`, dated the day the PR is opened (never in the future), validated with `tools/blog/validate.mjs`. Branch → PR, never push to `main`. No `gate` (interactive demo) figure. If the repo can't be reached, finish the post without a blog line and say so in the report.
-
-## 6. Record
+## 5. Record
 Update `meta.json` (status "scheduled", buffer_post_id, asset_base), commit and push decoded-content, and add a row to the log in the project's `content-plan.md`. If an archive post was used, mark it used in `archive.md`.
 
 ## Paused: motion-graphic video
