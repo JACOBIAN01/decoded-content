@@ -1,0 +1,16 @@
+{
+ "number": "09",
+ "slot": "Mon",
+ "due": "2026-11-16T10:00:00+05:30",
+ "format": "carousel",
+ "slides": 9,
+ "topic": "FBI FaceStealer: fake video calls with stolen webcam clips, $400M+",
+ "topic_type": "scam / social engineering",
+ "hook_style": "attributed fact + open question",
+ "score": 22,
+ "status": "built",
+ "note": "Built Sun 15 Nov 21:08 IST. Primary FBI FLASH read in full; independent Cybernews. DOJ and THN pages did not open (PROVENANCE_REQUIRED).",
+ "buffer_post_id": "",
+ "doc_title": "The fake video call",
+ "asset_base": ""
+}
