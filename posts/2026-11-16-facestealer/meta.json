@@ -8,9 +8,9 @@
  "topic_type": "scam / social engineering",
  "hook_style": "attributed fact + open question",
  "score": 22,
- "status": "built",
- "note": "Built Sun 15 Nov 21:08 IST. Primary FBI FLASH read in full; independent Cybernews. DOJ and THN pages did not open (PROVENANCE_REQUIRED).",
- "buffer_post_id": "",
+ "status": "scheduled",
+ "note": "Built Sun 15 Nov 21:08 IST. Primary FBI FLASH read in full; independent Cybernews. DOJ and THN pages did not open (PROVENANCE_REQUIRED). jsDelivr HTTP check was blocked by the fetch permission layer; file presence at the pinned commit confirmed via GitHub.",
+ "buffer_post_id": "6af9d3d1e5a113497af81e9b",
  "doc_title": "The fake video call",
- "asset_base": ""
+ "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded-content@1cabd826f46fcf966a05dd3aa44a294cc048f0a5/posts/2026-11-16-facestealer/"
 }
