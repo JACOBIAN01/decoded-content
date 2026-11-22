@@ -1,0 +1,16 @@
+{
+ "number": "10",
+ "slot": "Mon",
+ "due": "2026-11-23T10:00:00+05:30",
+ "format": "carousel",
+ "slides": 9,
+ "topic": "Microsoft 365 outage 12-13 Nov: July defect + surge + 14% missing capacity",
+ "topic_type": "infrastructure / how big systems fail",
+ "hook_style": "attributed fact + open question",
+ "score": 21,
+ "status": "built",
+ "note": "Built Sun 22 Nov 21:08 IST. Primary: Microsoft preliminary PIR (PDF copy) read in full; independent BleepingComputer and The Register. Final PIR (due 20 Nov) not found. Fri 20 Nov slot was already missed (nothing scheduled).",
+ "buffer_post_id": null,
+ "doc_title": "Microsoft's outage",
+ "asset_base": null
+}
