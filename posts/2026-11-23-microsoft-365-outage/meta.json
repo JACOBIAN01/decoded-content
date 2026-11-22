@@ -8,9 +8,9 @@
  "topic_type": "infrastructure / how big systems fail",
  "hook_style": "attributed fact + open question",
  "score": 21,
- "status": "built",
- "note": "Built Sun 22 Nov 21:08 IST. Primary: Microsoft preliminary PIR (PDF copy) read in full; independent BleepingComputer and The Register. Final PIR (due 20 Nov) not found. Fri 20 Nov slot was already missed (nothing scheduled).",
- "buffer_post_id": null,
+ "status": "scheduled",
+ "note": "Built Sun 22 Nov 21:08 IST. Primary: Microsoft preliminary PIR (PDF copy) read in full; independent BleepingComputer and The Register. Final PIR (due 20 Nov) not found. Fri 20 Nov slot was already missed (nothing scheduled). jsDelivr HTTP check blocked by the fetch permission layer; files confirmed at the pinned commit via GitHub.",
+ "buffer_post_id": "6b0331b8d864a01105e5a465",
  "doc_title": "Microsoft's outage",
- "asset_base": null
+ "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded-content@54da67efe2d9f1916695288348ba399a2dfe921c/posts/2026-11-23-microsoft-365-outage/"
 }
