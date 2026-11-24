@@ -1,0 +1,16 @@
+{
+ "number": "11",
+ "slot": "Wed",
+ "due": "2026-11-25T10:00:00+05:30",
+ "format": "carousel",
+ "slides": 9,
+ "topic": "The vendor problem: Optimizely (178 organisations) and Uber/Fireworks",
+ "topic_type": "security / third-party risk",
+ "hook_style": "attributed fact + open question",
+ "score": 22,
+ "status": "built",
+ "note": "Built Tue 24 Nov 21:08 IST. Optimizely facts from Dark Reading, Sonatype, SecureWorld, Inc42 (Optimizely status page blocked); Uber/Fireworks from TechCrunch and BleepingComputer. Cursor and CoinDCX left out (unverified).",
+ "buffer_post_id": null,
+ "doc_title": "The vendor problem",
+ "asset_base": null
+}
