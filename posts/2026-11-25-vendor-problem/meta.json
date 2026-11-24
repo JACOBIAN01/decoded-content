@@ -8,9 +8,9 @@
  "topic_type": "security / third-party risk",
  "hook_style": "attributed fact + open question",
  "score": 22,
- "status": "built",
- "note": "Built Tue 24 Nov 21:08 IST. Optimizely facts from Dark Reading, Sonatype, SecureWorld, Inc42 (Optimizely status page blocked); Uber/Fireworks from TechCrunch and BleepingComputer. Cursor and CoinDCX left out (unverified).",
- "buffer_post_id": null,
+ "status": "scheduled",
+ "note": "Built Tue 24 Nov 21:08 IST. Optimizely facts from Dark Reading, Sonatype, SecureWorld, Inc42 (Optimizely status page blocked); Uber/Fireworks from TechCrunch and BleepingComputer. Cursor and CoinDCX left out (unverified). jsDelivr HTTP check blocked by the fetch permission layer; files confirmed at the pinned commit via git ls-tree and the PDF has 9 pages.",
+ "buffer_post_id": "6b05b147b9f7e24d85432f8b",
  "doc_title": "The vendor problem",
- "asset_base": null
+ "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded-content@c84f1b7bcebfe36deaf0d029f49a8106f12701b1/posts/2026-11-25-vendor-problem/"
 }
