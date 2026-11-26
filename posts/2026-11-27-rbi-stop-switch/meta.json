@@ -1,0 +1,15 @@
+{
+ "number": "12",
+ "slot": "Fri",
+ "due": "2026-11-27T10:00:00+05:30",
+ "format": "carousel",
+ "slides": 9,
+ "topic": "RBI draft: stop switch and trusted person for bank payments",
+ "topic_type": "money safety / India policy mechanism",
+ "hook_style": "attributed fact + open question",
+ "score": 24,
+ "status": "built",
+ "doc_title": "RBI's stop switch",
+ "buffer_post_id": "",
+ "asset_base": ""
+}
