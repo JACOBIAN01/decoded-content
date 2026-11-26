@@ -8,8 +8,9 @@
  "topic_type": "money safety / India policy mechanism",
  "hook_style": "attributed fact + open question",
  "score": 24,
- "status": "built",
+ "status": "scheduled",
  "doc_title": "RBI's stop switch",
- "buffer_post_id": "",
- "asset_base": ""
+ "buffer_post_id": "6b085486f9be35f0932f18e8",
+ "asset_base": "https://cdn.jsdelivr.net/gh/JACOBIAN01/decoded-content@3bbcc9a00880b2cf962ab66f55dbd633d88d3c23/posts/2026-11-27-rbi-stop-switch/",
+ "note": "Built Thu 26 Nov 21:08 IST. RBI pages did not open this run; facts from Business Standard, MediaNama and TaxGuru's reproduction of the draft (26 Nov scan logged opening the RBI pages). jsDelivr check blocked by the fetch permission layer; files confirmed at the pinned commit via git ls-tree, PDF has 9 pages."
 }
